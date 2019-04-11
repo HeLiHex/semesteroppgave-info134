@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <title>Semesteroppgave</title>
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="detaljer.js"></script>
     </head>
     <body>
         <nav class="header">
             <button>Introduksjon</button>
             <button>Oversikt</button>
-            <button>Detaljer</button>
+            <button onclick="detaljer()">Detaljer</button>
             <button>Sammenligning</button>
         </nav>
 
@@ -18,20 +19,23 @@
             <div class="into">
                 <p>Hei, velkommen!</p>
 
-                <p> 
+                <p>
                    Dette er en hjemmeside som skal gjøre det letter for dere å finne fram til riktig befolkningsstatistik i Norge. Nede kan dere finne relevante lenker som vi refererer til på vår nettside.
                 </p>
                 <a href="http://data.ssb.no/api/v0/dataset/104857?lang=no">Befolkning</a>
                 <a href="http://data.ssb.no/api/v0/dataset/100145?lang=no">Sysselsatte</a>
                 <a href="http://data.ssb.no/api/v0/dataset/85432?lang=no">Utdanning</a>
 
-            
+
             </div>
 
             <div class="oversikt">
+              <p>kommunenummer  |  Total befolkning</p>
+              <p id="detaljer"></p>
             </div>
 
             <div class="detaljer">
+
             </div>
 
             <div class="sammenligning">
