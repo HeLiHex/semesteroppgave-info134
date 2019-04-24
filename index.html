@@ -3,38 +3,42 @@
     <head>
         <meta charset="utf-8">
         <title>Semesteroppgave</title>
+        <script src = "befolkning.js" type="text/javascript" defer></script>
         <link rel="stylesheet" type="text/css" href="index.css">
     </head>
-    <body>
+    <body onload = "hideFunction('Oversikt')">
         <nav class="header">
-            <button>Introduksjon</button>
-            <button>Oversikt</button>
-            <button>Detaljer</button>
-            <button>Sammenligning</button>
+            <button onclick = "hideFunction('Introduksjon')">Introduksjon</button>
+            <button onclick = "hideFunction('Oversikt')">Oversikt</button>
+            <button onclick = "hideFunction('Detaljer')">Detaljer</button>
+            <button onclick = "hideFunction('Sammenligning')">Sammenligning</button>
         </nav>
 
         <div class="body">
-            work in progress..
-            <div class="into">
+            <div class="intro">
                 <p>Hei, velkommen!</p>
-
                 <p> 
-                   Dette er en hjemmeside som skal gjøre det letter for dere å finne fram til riktig befolkningsstatistik i Norge. Nede kan dere finne relevante lenker som vi refererer til på vår nettside.
+                   Dette er en hjemmeside som skal gjøre det letter for dere å finne fram til riktig befolkningsstatistik i Norge. Nede kan dere finne relevante lenker som vi refererer til på vårt nettsted.
                 </p>
                 <a href="http://data.ssb.no/api/v0/dataset/104857?lang=no">Befolkning</a>
                 <a href="http://data.ssb.no/api/v0/dataset/100145?lang=no">Sysselsatte</a>
                 <a href="http://data.ssb.no/api/v0/dataset/85432?lang=no">Utdanning</a>
-
-            
             </div>
 
             <div class="oversikt">
+                <table id="oversikt">
+                <tr>
+                <th>Kommune</th> <th>Kommunenummer</th> <th>Befolkning</th>
+                </tr>
+                </table>
             </div>
 
             <div class="detaljer">
+                work in progress..
             </div>
 
             <div class="sammenligning">
+                work in progress..
             </div>
         </div>
 
