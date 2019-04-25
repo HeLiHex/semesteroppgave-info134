@@ -32,7 +32,7 @@ function getNames(data) {
 function getIDs(data) {
     var list = [];
     for(i in data.elementer){
-        list.push(data.elementer[i].kommunenummer)
+        list.push(data.elementer[i].kommunenummer);
     }
     return list;
 }
@@ -53,6 +53,15 @@ function getInfo(kommunenummer,data){
 
     for(i in data.elementer){
         if(kommunenummer == data.elementer[i].kommunenummer){
+            return obj = {
+                Grunnskole: data.elementer[i]["01"],
+                Videregående:data.elementer[i]["02a"],
+                Fagskole:data.elementer[i]["11"],
+                Bachelor:data.elementer[i]["03a"],
+                Master:data.elementer[i]["04a"],
+                Ingen:data.elementer[i]["09a"]
+            };
+/*
             list.push(data.elementer[i]["01"].Menn);
             list2.push(data.elementer[i]["01"].Kvinner);
             list3.push(data.elementer[i]["02a"].Menn);
@@ -65,15 +74,13 @@ function getInfo(kommunenummer,data){
             list10.push(data.elementer[i]["04a"].Kvinner);
             list11.push(data.elementer[i]["09a"].Menn);
             list12.push(data.elementer[i]["09a"].Kvinner);
+*/
         }
     }
+<<<<<<< Updated upstream
     return [(list,list2),(list3,list4),(list5,list6),(list7,list8),(list9,list10),(list11,list12)];
+=======
+    //return [list,list2,list3,list4,list5,list6,list7,list8,list9,list10,list11,list12];
+>>>>>>> Stashed changes
 
 }
-
-
-
-
-
-
-

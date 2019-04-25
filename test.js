@@ -49,10 +49,3 @@ function getInfo(kommunenummer,data){
     return [list,list2];
 
 }
-
-
-
-
-
-
-

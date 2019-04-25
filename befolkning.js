@@ -46,7 +46,7 @@ function hideFunction(button) {
     b.style.display = "none";
     c.style.display = "none";
     d.style.display = "none";
-  } 
+  }
   else if(button == "Oversikt") {
     a.style.display = "none";
     b.style.display = "inline";
