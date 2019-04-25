@@ -1,7 +1,5 @@
 
 function detaljer(kom) {
-  var befolkmenn=0;
-  var befolkkvinner=0;
    var kommunenr = kom;
    if (kommunenr != null) {
      var urlbefolk = "http://wildboy.uib.no/~tpe056/folk/104857.json";
@@ -51,7 +49,7 @@ function detaljer(kom) {
         for (i in responseObj.elementer) {
           //console.log(responseObj.elementer[i]);
           if (responseObj.elementer[i].kommunenummer == kommunenr) {
-            //document.getElementById("detaljer").innerHTML = i + " | " +responseObj.elementer[i].kommunenummer + "  |  " + totaltInnbyggere(responseObj);
+            document.getElementById("detaljer").innerHTML = i + " | " +responseObj.elementer[i].kommunenummer + "  |  " + totaltInnbyggere(responseObj);
           }
         }
 
@@ -59,10 +57,6 @@ function detaljer(kom) {
      }
      xhr3.send();
    }
-}
-
-function totaltSysselsatt(responseObj){
-
 }
 
 function totaltInnbyggere(responseObj) {
