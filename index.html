@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <title>Semesteroppgave</title>
         <script src = "befolkning.js" type="text/javascript" defer></script>
+        <script src = "detaljer.js" type="text/javascript" defer></script>
         <link rel="stylesheet" type="text/css" href="index.css">
         <script src="detaljer.js"></script>
     </head>
-    <body onload = "hideFunction('Oversikt')">
+    <body onload = "hideFunction('Detaljer')">
         <nav class="header">
             <button onclick = "hideFunction('Introduksjon')">Introduksjon</button>
             <button onclick = "hideFunction('Oversikt')">Oversikt</button>
@@ -35,10 +36,14 @@
             </div>
 
             <div class="detaljer">
-                work in progress..
-            </div>
+                Skriv kommunnummer her:
+            <form action = "" method="POST">
+            <input id="inputnummer" type="text" name="nummer">
+<input type="button" value="Hent info" onclick = "detaljer(document.getElementById('inputnummer').value);">
+            </form>
               <p id="detaljer"></p>
             </div>
+
             <div class="sammenligning">
                 work in progress..
             </div>
