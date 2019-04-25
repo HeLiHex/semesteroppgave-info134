@@ -13,9 +13,8 @@ xhr.onreadystatechange = function(){
 			var befolkstring = document.createElement("td");
 			befolkstring.innerHTML = totaltInnbyggere(responseObj);
 			nrstring.innerHTML = responseObj.elementer[i].kommunenummer;
-			komstring.innerHTML = "<td>"+i+"</td>"+nrstring.innerHTML + "<td>"+befolkstring.innerHTML+"</td>";
+			komstring.innerHTML = "<td>"+i+"</td>"+nrstring.innerHTML + "<td>"+ befolkstring.innerHTML;
 			kommuner.appendChild(komstring);
-			//du är här.. du har fixat tables men din befolknings grej är lite för pressad ihop med resten
 		}
 	}
 }

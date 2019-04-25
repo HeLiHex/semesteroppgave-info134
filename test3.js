@@ -67,7 +67,7 @@ function getInfo(kommunenummer,data){
             list12.push(data.elementer[i]["09a"].Kvinner);
         }
     }
-    return [list,list2,list3,list4,list5,list6,list7,list8,list9,list10,list11,list12];
+    return [(list,list2),(list3,list4),(list5,list6),(list7,list8),(list9,list10),(list11,list12)];
 
 }
 
