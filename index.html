@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <title>Semesteroppgave</title>
         <script src = "befolkning.js" type="text/javascript" defer></script>
-        <script src = "detaljer.js" type="text/javascript" defer></script>
-        <script src = "datasett.js" type="text/javascript" defer></script>
+        <script src = "Datasett.js" type="text/javascript" defer></script>
         <link rel="stylesheet" type="text/css" href="index.css">
         <script src="detaljer.js"></script>
     </head>
@@ -20,7 +19,7 @@
         <div class="body">
             <div class="intro">
                 <p>Hei, velkommen!</p>
-                <p> 
+                <p>
                    Dette er en hjemmeside som skal gjøre det letter for dere å finne fram til riktig befolkningsstatistik i Norge. Nede kan dere finne relevante lenker som vi refererer til på vårt nettsted.
                 </p>
                 <a href="http://data.ssb.no/api/v0/dataset/104857?lang=no">Befolkning</a>
@@ -38,7 +37,7 @@
 
             <div class="detaljer">
                 Skriv kommunnummer her:
-            <form action = "" method="POST">
+            <form method="POST">
             <input id="inputnummer" type="text" name="nummer">
 <input type="button" value="Hent info" onclick = "detaljer(document.getElementById('inputnummer').value);">
             </form>
