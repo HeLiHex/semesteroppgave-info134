@@ -44,8 +44,8 @@ function Befolkning(url) {
 	this.getIDs = function() {
 		return getIDs(this.data);
 	};
-	this.getInfo = function() {
-		return getInfo("0101", this.data);
+	this.getInfo = function(kom) {
+		return getInfo(kom, this.data);
 	};
     this.load = function(){
         return load(url, this, this.onload);
@@ -74,6 +74,8 @@ function getNames(data) {
 	return list;
 }
 
+
+
 function getIDs(data) {
 	var list = [];
 	for (i in data.elementer) {
@@ -86,12 +88,14 @@ function getInfo(kommunenummer,data){
     var list = [];
     var list2 = [];
     for(i in data.elementer){
-        if(kommunenummer == data.elementer[i].kommunenummer){
-            list.push(data.elementer[i].Menn);
-            list2.push(data.elementer[i].Kvinner);
+    	if (kommunenummer == data.elementer[i].kommunenummer) {
+        	    return (obj = {
+				Menn: data.elementer[i].Menn,
+				Kvinner: data.elementer[i].Kvinner,
+			});
         }
     }
-    return [list,list2];
+
 
 }
 
