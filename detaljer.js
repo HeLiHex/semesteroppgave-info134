@@ -61,10 +61,6 @@ function detaljer(kom) {
    }
 }
 
-function totaltSysselsatt(responseObj){
-
-}
-
 function totaltInnbyggere(responseObj) {
   var innbyggere = 0;
  for (år in responseObj.elementer[i].Menn) {
