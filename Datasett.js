@@ -13,8 +13,8 @@ function Utdanning(url) {
 	this.getIDs = function() {
 		return getIDs(this.data);
 	};
-	this.getInfo = function() {
-		return getInfoUtdanning("0101", this.data);
+	this.getInfo = function(kom) {
+		return getInfoUtdanning(kom, this.data);
 	};
 }
 
@@ -30,8 +30,8 @@ function Sysselsetting(url) {
 	this.getIDs = function() {
 		return getIDs(this.data);
 	};
-	this.getInfo = function() {
-		return getInfo("0101", this.data);
+	this.getInfo = function(kom) {
+		return getInfosyssel(kom, this.data);
 	};
 }
 
@@ -74,8 +74,6 @@ function getNames(data) {
 	return list;
 }
 
-
-
 function getIDs(data) {
 	var list = [];
 	for (i in data.elementer) {
@@ -95,8 +93,20 @@ function getInfo(kommunenummer,data){
 			});
         }
     }
+}
 
-
+function getInfosyssel(kommunenummer,data){
+    var list = [];
+    var list2 = [];
+    for(i in data.elementer){
+    	if (kommunenummer == data.elementer[i].kommunenummer) {
+        	    return (obj = {
+				Menn: data.elementer[i].Menn,
+				Kvinner: data.elementer[i].Kvinner,
+				Begge: data.elementer[i]["Begge kjønn"]
+			});
+        }
+    }
 }
 
 function getInfoUtdanning(kommunenummer, data) {

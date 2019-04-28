@@ -25,8 +25,6 @@ var befolk = new Befolkning(url);
 	var kommunenummer = befolk.getIDs();
 
 		for (i in kommunenummer) {
-			console.log(kommunenummer[i]);
-
 			var komstring = document.createElement("tr");
 			var nrstring = document.createElement("td");
 			var befolkstring = document.createElement("td");
