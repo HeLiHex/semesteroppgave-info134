@@ -44,3 +44,10 @@ button {
   color: black;
   font-size: 12px;
 }
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
