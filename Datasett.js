@@ -1,10 +1,12 @@
-var test = new Utdanning("http://wildboy.uib.no/~tpe056/folk/85432.json");
 
 
 //de 3 konstruktørene
 function Utdanning(url) {
 	this.url = url;
-	this.load = load(url, this);
+    this.onload = null;
+	this.load = function (){
+        return load(url, this, this.onload);
+    };
 	this.getNames = function() {
 		return getNames(this.data);
 	};
@@ -18,7 +20,10 @@ function Utdanning(url) {
 
 function Sysselsetting(url) {
 	this.url = url;
-	this.load = load(url, this);
+    this.onload = null;
+	this.load = function(){
+        return load(url, this, this.onload);
+    };
 	this.getNames = function() {
 		return getNames(this.data);
 	};
@@ -32,7 +37,7 @@ function Sysselsetting(url) {
 
 function Befolkning(url) {
 	this.url = url;
-	this.load = load(url, this);
+    this.onload = null;
 	this.getNames = function() {
 		return getNames(this.data);
 	};
@@ -42,17 +47,20 @@ function Befolkning(url) {
 	this.getInfo = function() {
 		return getInfo("0101", this.data);
 	};
+    this.load = function(){
+        return load(url, this, this.onload);
+    }
 }
 
 
-
 // funksjoner
-function load(url, obj) {
+function load(url, obj, onload) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status === 200) {
 			obj.data = JSON.parse(xhr.responseText);
+            onload();
 		}
 	};
 	xhr.send();
