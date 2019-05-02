@@ -57,22 +57,54 @@ function detaljer(kom) {
 
 
                   for (år in befolk.getInfo(kom).Menn) {
-                      var tabell = document.getElementById("detaljer3");
+                      var tabell = document.getElementById("befolkning");
                       var årstall = document.createElement("tr");
                       var befolkning = document.createElement("td");
-                      var sysselsatte = document.createElement("td");
-                    //  var utdannede = document.createElement("td");
+                      var kvinner = document.createElement("td");
+                      var menn = document.createElement("td");
 
                       årstall.innerHTML = år;
+                      kvinner.innerHTML = temp.Kvinner[år];
+                      menn.innerHTML = temp.Menn[år];
                       befolkning.innerHTML =  temp.Kvinner[år] + 0 + temp.Menn[år];
-                      sysselsatte.innerHTML = syssel.getInfo(kom).Begge[år];
-                      årstall.innerHTML += "<td>"+ befolkning.innerHTML + "</td>" + sysselsatte.innerHTML;
+                      årstall.innerHTML += "<td>" + kvinner.innerHTML + "</td>" + "<td>" + menn.innerHTML + "</td>" + "<td>"+ befolkning.innerHTML + "</td>";
                       tabell.appendChild(årstall);
 
 
                   }
 
-                
+                  for (år in befolk.getInfo(kom).Menn) {
+                    var tabell = document.getElementById("sysselsatte");
+                    var årstall = document.createElement("tr");
+                    var sysselsatte = document.createElement("td");
+                    var kvinner = document.createElement("td");
+                    var menn = document.createElement("td");
+
+                    årstall.innerHTML = år;
+                    sysselsatte.innerHTML = syssel.getInfo(kom).Begge[år];
+                    kvinner.innerHTML = syssel.getInfo(kom).Kvinner[år];
+                    menn.innerHTML = syssel.getInfo(kom).Menn[år];
+                    årstall.innerHTML += "<td>" + kvinner.innerHTML + "</td>" +"<td>" + menn.innerHTML + "</td>" +"<td>" + sysselsatte.innerHTML + "</td>";
+                    tabell.appendChild(årstall);
+                  }
+
+                  for (år in befolk.getInfo(kom).Menn) {
+                    var tabell = document.getElementById("utdanning");
+                    var årstall = document.createElement("tr");
+                    var grunnskole = document.createElement("td");
+                    var vgs = document.createElement("td");
+                    var fagskole = document.createElement("td");
+                    var bachelor = document.createElement("td");
+                    var master = document.createElement("td");
+                    var ingen = document.createElement("td");
+
+                    årstall.innerHTML = år;
+                    grunnskole.innerHTML = utdanning.getInfo(kom).Grunnskole;
+                    årstall.innerHTML += grunnskole.innerHTML;
+                    tabell.appendChild(årstall);
+                  }
+
+
 
                   //document.getElementById("detaljer").innerHTML = kommunenamn[i]+" | "+ kommunenummer[i];
                   //temp må ligge lengst nede og lengst bak.. den er BROKEN!!
