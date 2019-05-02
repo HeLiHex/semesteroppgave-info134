@@ -53,8 +53,26 @@ function detaljer(kom) {
                   result.appendChild(utdanningprocent);
                   result.appendChild(utdanningantal);
                   table.appendChild(result);
-                  
 
+
+
+                  for (år in befolk.getInfo(kom).Menn) {
+                      var tabell = document.getElementById("detaljer3");
+                      var årstall = document.createElement("tr");
+                      var befolkning = document.createElement("td");
+                      var sysselsatte = document.createElement("td");
+                    //  var utdannede = document.createElement("td");
+
+                      årstall.innerHTML = år;
+                      befolkning.innerHTML =  temp.Kvinner[år] + 0 + temp.Menn[år];
+                      sysselsatte.innerHTML = syssel.getInfo(kom).Begge[år];
+                      årstall.innerHTML += "<td>"+ befolkning.innerHTML + "</td>" + sysselsatte.innerHTML;
+                      tabell.appendChild(årstall);
+
+
+                  }
+
+                
 
                   //document.getElementById("detaljer").innerHTML = kommunenamn[i]+" | "+ kommunenummer[i];
                   //temp må ligge lengst nede og lengst bak.. den er BROKEN!!
