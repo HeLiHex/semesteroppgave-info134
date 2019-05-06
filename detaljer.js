@@ -87,7 +87,11 @@ function detaljer(kom) {
                       tabellSyssel.appendChild(årstallSyssel);
                   }
 
-                  for (år in utdanning.getInfo(kom).Grunnskole.Menn) {
+                  for (år in befolk.getInfo(kom).Menn) {
+                    if(år > 2017){
+                      break;
+                    }
+
                     var tabell = document.getElementById("utdanning");
                     var årstall = document.createElement("tr");
                     var grunnskole = document.createElement("td");
@@ -97,22 +101,43 @@ function detaljer(kom) {
                     var master = document.createElement("td");
                     var ingen = document.createElement("td");
 
+                    befolkmennut = befolk.getInfo(kom).Menn[år];
+                    befolkkvinnut = befolk.getInfo(kom).Kvinner[år];
+                    befolktot = befolkmennut + befolkkvinnut;
+
                     årstall.innerHTML = år;
                     grunnskolemenn = utdanning.getInfo(kom).Grunnskole.Menn[år];
                     grunnskolekvinner = utdanning.getInfo(kom).Grunnskole.Kvinner[år];
-                    grunnskole.innerHTML = parseInt(grunnskolemenn + grunnskolekvinner);
+                    num= ((((grunnskolemenn/100)*befolkmennut) + ((grunnskolekvinner/100)*befolkkvinnut))/befolktot)*100;
+                    grunnskole.innerHTML =  num.toFixed(1);
 
                     vgsmenn = utdanning.getInfo(kom).Videregående.Menn[år];
                     vgskvinner = utdanning.getInfo(kom).Videregående.Kvinner[år];
-                    vgs.innerHTML = parseInt(vgsmenn + vgskvinner);
+                    num2= ((((vgsmenn/100)*befolkmennut) + ((vgskvinner/100)*befolkkvinnut))/befolktot)*100;
+                    vgs.innerHTML = num2.toFixed(1);
 
                     fagskolemenn = utdanning.getInfo(kom).Fagskole.Menn[år];
                     fagskolekvinner = utdanning.getInfo(kom).Fagskole.Kvinner[år];
-                    fagskole.innerHTML = parseInt(fagskolemenn + fagskolekvinner);
+                    num3 = ((((fagskolemenn/100)*befolkmennut) + ((fagskolekvinner/100)*befolkkvinnut))/befolktot)*100;
+                    fagskole.innerHTML = num3.toFixed(1);
 
-                    årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>";
+                    bachelormenn = utdanning.getInfo(kom).Bachelor.Menn[år];
+                    bachelorkvinner = utdanning.getInfo(kom).Bachelor.Kvinner[år];
+                    num4 = ((((bachelormenn/100)*befolkmennut) + ((bachelorkvinner/100)*befolkkvinnut))/befolktot)*100;
+                    bachelor.innerHTML = num4.toFixed(1);
+
+                    mastermenn = utdanning.getInfo(kom).Master.Menn[år];
+                    masterkvinner = utdanning.getInfo(kom).Master.Kvinner[år];
+                    num5 = ((((mastermenn/100)*befolkmennut) + ((masterkvinner/100)*befolkkvinnut))/befolktot)*100;
+                    master.innerHTML = num5.toFixed(1);
+
+                    ingenmenn = utdanning.getInfo(kom).Ingen.Menn[år];
+                    ingenkvinner = utdanning.getInfo(kom).Ingen.Kvinner[år];
+                    num6 = ((((ingenmenn/100)*befolkmennut) + ((ingenkvinner/100)*befolkkvinnut))/befolktot)*100;
+                    ingen.innerHTML = num6.toFixed(1);
+
+                    årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>"+  "<td>" + bachelor.innerHTML + "</td>" +"<td>" + master.innerHTML + "</td>" +"<td>" + ingen.innerHTML + "</td>";
                     tabell.appendChild(årstall);
-
                   }
 
 
