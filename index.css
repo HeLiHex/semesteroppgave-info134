@@ -1,18 +1,15 @@
 .header {
   display: flex;
+  flex: wrap;
   justify-content: center;
   padding: 20px;
   background: #1abc9c;
   color: white;
   font-size: 30px;
-  margin-bottom: 30px;
 }
 
 button {
-  display: flex;
   margin: 60px auto;
-  flex-wrap: wrap;
-  margin: 10px;
   padding: 12px 12px;
 
   color: #444;
@@ -21,21 +18,19 @@ button {
   border-radius: 4px;
 
   font-size: 20px;
-  font-family: Times New Roman, times-roman, georgia, serif;
+  font-family: Times, georgia, serif;
   font-weight: bold;
   line-height: 44px;
 
-  justify-content: center;
   flex: 0 0 160px;
-  box-shadow: 2px 5px 10px var(--color-smoke);
 }
 
 .body {
-  padding: 60px;
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
   background: #1abc9c;
   color: black;
-  font-size: 30px;
 }
 
 .footer {
@@ -46,8 +41,23 @@ button {
 }
 
 table {
+  background-color: #fff;
+  color: #000;
   table-layout: fixed;
   width: 100%;
-  border-collapse: collapse;
-  border: 3px solid purple;
+}
+
+tr:nth-child(odd) {
+  background-color: #AFFAFA;
+}
+
+tr:nth-child(even) {
+  background-color: #FAF9F9;
+}
+td:nth-child(odd){
+    color: blue;
+}
+
+.marked{
+    background-color: red;
 }
