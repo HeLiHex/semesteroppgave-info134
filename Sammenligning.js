@@ -95,14 +95,6 @@ function sammenlign() {
 
 			table.appendChild(row);
 		}
-<<<<<<< HEAD
-		if(window.innerWidth<=760){
-			flipTable(table, container);
-		}
-=======
-
->>>>>>> ca8f7df081d296f4e8a42e836b7312b0f823773c
-
 
 		var rad = document.createElement("tr");
 		var colonne = document.createElement("td");
