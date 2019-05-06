@@ -22,6 +22,7 @@ function Sysselsetting(url) {
     this.load = function() {
         return load(url, this, this.onload);
     };
+<<<<<<< HEAD
     this.getNames = function() {
         return getNames(this.data);
     };
@@ -31,6 +32,20 @@ function Sysselsetting(url) {
     this.getInfo = function(kom) {
         return getInfosyssel(kom, this.data);
     };
+=======
+	this.getNames = function() {
+		return getNames(this.data);
+	};
+	this.getIDs = function() {
+		return getIDs(this.data);
+	};
+	this.getInfo = function(kom) {
+		return getInfosyssel(kom, this.data);
+	};
+	this.getNamesKom = function(kom){
+		return getNamesKom(kom,this.data);
+	};
+>>>>>>> 27619e77fda9c4f5692fe06e59879bc077e4b598
 }
 
 function Befolkning(url) {
@@ -71,6 +86,14 @@ function getNames(data) {
     return list;
 }
 
+function getNamesKom(kommunenummer,data){
+	for(i in data.elementer){
+		if(kommunenummer == data.elementer[i].kommunenummer)
+			return i;
+	}
+
+}
+
 function getIDs(data) {
     var list = [];
     for (i in data.elementer) {
@@ -79,6 +102,7 @@ function getIDs(data) {
     return list;
 }
 
+<<<<<<< HEAD
 function getInfo(kommunenummer, data) {
     var list = [];
     var list2 = [];
@@ -88,10 +112,20 @@ function getInfo(kommunenummer, data) {
                 Menn: data.elementer[i].Menn,
                 Kvinner: data.elementer[i].Kvinner
             });
+=======
+function getInfo(kommunenummer,data){
+    for(i in data.elementer){
+    	if (kommunenummer == data.elementer[i].kommunenummer) {
+        	    return (obj = {
+				Menn: data.elementer[i].Menn,
+				Kvinner: data.elementer[i].Kvinner,
+			});
+>>>>>>> 27619e77fda9c4f5692fe06e59879bc077e4b598
         }
     }
 }
 
+<<<<<<< HEAD
 function getInfosyssel(kommunenummer, data) {
     var list = [];
     var list2 = [];
@@ -102,6 +136,16 @@ function getInfosyssel(kommunenummer, data) {
                 Kvinner: data.elementer[i].Kvinner,
                 Begge: data.elementer[i]["Begge kjønn"]
             });
+=======
+function getInfosyssel(kommunenummer,data){
+    for(i in data.elementer){
+    	if (kommunenummer == data.elementer[i].kommunenummer) {
+        	    return (obj = {
+				Menn: data.elementer[i].Menn,
+				Kvinner: data.elementer[i].Kvinner,
+				Begge: data.elementer[i]["Begge kjønn"]
+			});
+>>>>>>> 27619e77fda9c4f5692fe06e59879bc077e4b598
         }
     }
 }
