@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  flex: wrap;
   justify-content: center;
   padding: 20px;
   background: #1abc9c;
@@ -22,17 +23,14 @@ button {
   line-height: 44px;
 
   flex: 0 0 160px;
-  box-shadow: 2px 5px 10px;
 }
 
 .body {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px;
   text-align: center;
   background: #1abc9c;
   color: black;
-  font-size: 30px;
 }
 
 .footer {
@@ -47,9 +45,6 @@ table {
   color: #000;
   table-layout: fixed;
   width: 100%;
-  border-collapse: collapse;
-  border: 3px solid green;
-  box-shadow: 2px 5px 10px;
 }
 
 /*tr:nth-child(odd) {
