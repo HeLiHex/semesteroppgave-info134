@@ -97,8 +97,9 @@ function sammenlign() {
 
 			table.appendChild(row);
 		}
-
-        flipTable(table, container);
+		if(window.innerWidth<=760){
+			flipTable(table, container);
+		}
 
 
 		var rad = document.createElement("tr");
@@ -152,6 +153,7 @@ function createHeader(table,kom1,kom2){
 }
 
 function flipTable(table, container){
+
     var newTable = document.createElement('table');
     var maxColumns = 0;
     // Find the max number of columns

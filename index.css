@@ -70,6 +70,17 @@ table {
 
 }
 
+@media(max-width: 760px){
+  tr { 
+  display: block; 
+  float: left; 
+}
+th, td { 
+  display: block; 
+}
+
+  }
+
 tr:nth-child(odd) {
   background: #90AFC5;
   color: inherit;
@@ -78,12 +89,6 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background: #f9f2ec;
   color: inherit;
-}
-
-th{
-    background: #336B87;
-    color: inherit;
-    height: 60px;
 }
 
 .marked {
