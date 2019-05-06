@@ -22,8 +22,6 @@ function detaljer(kom) {
 
         var total = utdanKvinnTotal + utdanMenTotal;
 
-
-
         for (i in kommunenamn){
                if (kommunenummer[i] == kom) {
                   table = document.getElementById("detaljer2");
@@ -139,13 +137,6 @@ function detaljer(kom) {
                     årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>"+  "<td>" + bachelor.innerHTML + "</td>" +"<td>" + master.innerHTML + "</td>" +"<td>" + ingen.innerHTML + "</td>";
                     tabell.appendChild(årstall);
                   }
-
-
-
-                  //document.getElementById("detaljer").innerHTML = kommunenamn[i]+" | "+ kommunenummer[i];
-                  //temp må ligge lengst nede og lengst bak.. den er BROKEN!!
-                  //document.getElementById("detaljer").innerHTML += " | " + antal +" | "+sysselkommun.Begge[2018] +" | "+ parseInt(antal*(sysselkommun.Begge[2018]/100)) + " | " + total +" | " + parseInt(antal*(total/100));
-
          }
         }
     }
