@@ -18,8 +18,12 @@ button {
     width: 200px;
     height: 60px;
     margin: 10px;
+<<<<<<< HEAD
+    color: #444;
+=======
 
     color: black;
+>>>>>>> 620bf0f03962da492b459a5909a5f597fa4a7332
     background-color: #f9f2ec;
     border: 0 none;
     border-radius: 4px;
@@ -39,8 +43,8 @@ button {
     margin-bottom: 10px;
 }
 
-.body li{
-  text-align: left;
+.body li {
+    text-align: left;
 }
 
 .footer {
@@ -50,7 +54,7 @@ button {
     font-size: 12px;
 }
 
-input{
+input {
     margin: 20px;
     color: black;
     background: #f9f2ec;
@@ -62,6 +66,69 @@ input{
     flex: 0 0 160px;
 }
 
+<<<<<<< HEAD
+@media (max-width: 760px) {
+    table {
+        white-space: nowrap;
+        font-size: 0;
+        width: fit-content;
+        display: flex;
+    }
+
+    tr {
+        display: block;
+        float: left;
+    }
+
+    th, td {
+        display: block;
+    }
+
+    table {
+        background: #fff;
+        color: inherit;
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    tr:nth-child(odd) {
+        background: #AFFAFA;
+        color: inherit;
+    }
+
+    tr:nth-child(even) {
+        background: #FAF9F9;
+        color: inherit;
+    }
+
+    th {
+        background: gold;
+        color: inherit;
+        height: 60px;
+    }
+
+    .marked {
+        background: green;
+        color: inherit;
+    }
+
+    p {
+        font-family: Times, georgia, serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #nede {
+        font-family: Times, georgia, serif;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    li {
+        list-style-type: none;
+    }
+=======
 table {
     background: #f9f2ec;
     color: inherit;
@@ -119,3 +186,4 @@ li{
 
 
 
+>>>>>>> 620bf0f03962da492b459a5909a5f597fa4a7332
