@@ -2,6 +2,23 @@ var sysselsetting = new Sysselsetting(
 	"http://wildboy.uib.no/~tpe056/folk/100145.json"
 );
 
+        var input = document.getElementById("kommunenr1");
+        var input2 = document.getElementById("kommunenr2");
+
+        input2.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("sambutton").click();
+    }
+});
+
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("sambutton").click();
+    }
+});
+
 function sammenlign() {
 	var kommunenr1 = document.getElementById("kommunenr1").value;
 	var kommunenr2 = document.getElementById("kommunenr2").value;
@@ -10,6 +27,9 @@ function sammenlign() {
 	sysselsetting.onload = function() {
 		var kommune1Info = sysselsetting.getInfo(kommunenr1);
 		var kommune2Info = sysselsetting.getInfo(kommunenr2);
+
+		var kommune1namn = sysselsetting.getNamesKom(kommunenr1);
+		var kommune2namn = sysselsetting.getNamesKom(kommunenr2);
 
 		var row = document.createElement("tr");
 
@@ -24,14 +44,14 @@ function sammenlign() {
 		var endringkommune2kvinnerHeader = document.createElement("th");
 
 		årHeader.innerHTML = "År";
-		kommune1HeaderMenn.innerHTML = "Menn i kommune 1";
-		kommune2HeaderMenn.innerHTML = "Menn i kommune 2";
-		kommune1HeaderKvinne.innerHTML = "Kvinner i kommune 1";
-		kommune2HeaderKvinne.innerHTML = "Kvinner i kommune 2";
-		endringkommune1mennHeader.innerHTML = "Endring kommune 1 menn"
-		endringkommune2mennHeader.innerHTML = "Endring kommune 2 menn"
-		endringkommune1kvinnerHeader.innerHTML = "Endring kommune 1 kvinner"
-		endringkommune2kvinnerHeader.innerHTML = "Endring kommune 2 kvinner"
+		kommune1HeaderMenn.innerHTML = "Menn i " + kommune1namn;
+		kommune2HeaderMenn.innerHTML = "Menn i " + kommune2namn;
+		kommune1HeaderKvinne.innerHTML = "Kvinner i " + kommune1namn;
+		kommune2HeaderKvinne.innerHTML = "Kvinner i " + kommune2namn;
+		endringkommune1mennHeader.innerHTML = "Endring "+kommune1namn+" menn"
+		endringkommune2mennHeader.innerHTML = "Endring "+kommune2namn+" menn"
+		endringkommune1kvinnerHeader.innerHTML = "Endring "+kommune1namn+" kvinner"
+		endringkommune2kvinnerHeader.innerHTML = "Endring "+kommune2namn+" kvinner"
 
 		row.appendChild(årHeader);
 		row.appendChild(kommune1HeaderMenn);

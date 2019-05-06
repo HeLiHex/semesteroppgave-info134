@@ -5,6 +5,14 @@ var urlutdanning = "http://wildboy.uib.no/~tpe056/folk/85432.json";
 var syssel = new Sysselsetting(urlsyssel);
 var utdanning = new Utdanning(urlutdanning);
 
+        var input = document.getElementById("inputnummer");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("btnSearch").click();
+    }
+});
+
 function detaljer(kom) {
        syssel.onload = function(){
       utdanning.onload = function(){
@@ -21,8 +29,6 @@ function detaljer(kom) {
         var utdanKvinnTotal = parseInt(utdanKvinn1 + utdanKvinn2);
 
         var total = utdanKvinnTotal + utdanMenTotal;
-
-
 
         for (i in kommunenamn){
                if (kommunenummer[i] == kom) {
@@ -252,13 +258,6 @@ function detaljer(kom) {
                     årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>"+  "<td>" + bachelor.innerHTML + "</td>" +"<td>" + master.innerHTML + "</td>" +"<td>" + ingen.innerHTML + "</td>";
                     tabell.appendChild(årstall);
                   }
-
-
-
-                  //document.getElementById("detaljer").innerHTML = kommunenamn[i]+" | "+ kommunenummer[i];
-                  //temp må ligge lengst nede og lengst bak.. den er BROKEN!!
-                  //document.getElementById("detaljer").innerHTML += " | " + antal +" | "+sysselkommun.Begge[2018] +" | "+ parseInt(antal*(sysselkommun.Begge[2018]/100)) + " | " + total +" | " + parseInt(antal*(total/100));
-
          }
         }
     }

@@ -1,63 +1,84 @@
 .header {
-  display: flex;
-  flex: wrap;
-  justify-content: center;
-  padding: 20px;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
 }
 
 button {
-  margin: 60px auto;
-  padding: 12px 12px;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    margin: 10px;
 
-  color: #444;
-  background-color: #f9f2ec;
-  border: 0 none;
-  border-radius: 4px;
-
-  font-size: 20px;
-  font-family: Times, georgia, serif;
-  font-weight: bold;
-  line-height: 44px;
-
-  flex: 0 0 160px;
+    color: #444;
+    background-color: #f9f2ec;
+    border: 0 none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: Times, georgia, serif;
+    font-weight: bold;
+    flex: 0 0 160px;
 }
 
 .body {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  background: #1abc9c;
-  color: black;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background: #1abc9c;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .footer {
-  text-align: center;
-  background: #0003;
-  color: black;
-  font-size: 12px;
+    text-align: center;
+    background: #0003;
+    color: black;
+    font-size: 12px;
+}
+
+input{
+    margin: 20px;
+    color: #444;
+    background: #f9f2ec;
+    border: 0 none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: Times, georgia, serif;
+    font-weight: bold;
+    flex: 0 0 160px;
 }
 
 table {
-  background-color: #fff;
-  color: #000;
-  table-layout: fixed;
-  width: 100%;
+    background: #fff;
+    color: inherit;
+    table-layout: fixed;
+    width: 100%;
+
 }
 
-/*tr:nth-child(odd) {
-  background-color: #AFFAFA;
+tr:nth-child(odd) {
+  background: #AFFAFA;
+  color: inherit;
 }
 
 tr:nth-child(even) {
-  background-color: #FAF9F9;
+  background: #FAF9F9;
+  color: inherit;
 }
-td:nth-child(odd){
-    color: blue;
-}*/
 
-.marked{
-    background-color: green;
+th{
+    background: gold;
+    color: inherit;
+    height: 60px;
+}
+
+.marked {
+    background: green;
+    color: inherit;
 }
