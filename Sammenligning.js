@@ -20,8 +20,8 @@ function sammenlign() {
 		var kommune2HeaderKvinne = document.createElement("th");
 
 		årHeader.innerHTML = "År";
-		kommune1HeaderMenn.innerHTML = "Menn i kommuen 1";
-		kommune2HeaderMenn.innerHTML = "Menn i kommuen 2";
+		kommune1HeaderMenn.innerHTML = "Menn i kommune 1";
+		kommune2HeaderMenn.innerHTML = "Menn i kommune 2";
 		kommune1HeaderKvinne.innerHTML = "Kvinner i kommune 1";
 		kommune2HeaderKvinne.innerHTML = "Kvinner i kommune 2";
 
