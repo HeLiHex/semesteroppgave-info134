@@ -1,9 +1,13 @@
+body{
+  background-color: #f9f2ec;
+}
+
 .header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    background: #1abc9c;
+    background: #90AFC5;
     color: white;
     font-size: 30px;
 }
@@ -14,7 +18,12 @@ button {
     width: 200px;
     height: 60px;
     margin: 10px;
+<<<<<<< HEAD
     color: #444;
+=======
+
+    color: black;
+>>>>>>> 620bf0f03962da492b459a5909a5f597fa4a7332
     background-color: #f9f2ec;
     border: 0 none;
     border-radius: 4px;
@@ -28,7 +37,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    background: #1abc9c;
+    background: #336B87;
     color: black;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -40,14 +49,14 @@ button {
 
 .footer {
     text-align: center;
-    background: #0003;
+    background: #90AFC5;
     color: black;
     font-size: 12px;
 }
 
 input {
     margin: 20px;
-    color: #444;
+    color: black;
     background: #f9f2ec;
     border: 0 none;
     border-radius: 4px;
@@ -57,6 +66,7 @@ input {
     flex: 0 0 160px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 760px) {
     table {
         white-space: nowrap;
@@ -118,3 +128,57 @@ input {
     li {
         list-style-type: none;
     }
+=======
+table {
+    background: #f9f2ec;
+    color: inherit;
+    table-layout: fixed;
+    width: 100%;
+
+}
+
+tr:nth-child(odd) {
+  background: #90AFC5;
+  color: inherit;
+}
+
+tr:nth-child(even) {
+  background: #f9f2ec;
+  color: inherit;
+}
+
+th{
+    background: #336B87;
+    color: inherit;
+    height: 60px;
+}
+
+.marked {
+    background: green;
+    color: inherit;
+}
+
+p {
+ font-family: Times, georgia, serif;
+ font-size: 20px;
+ font-weight: bold;
+}
+#nede{
+ font-family: Times, georgia, serif;
+ font-style: italic;
+ font-size: 20px;
+ font-weight: normal;
+
+}
+
+li{
+  list-style-type: none;
+}
+
+
+
+
+
+
+
+>>>>>>> 620bf0f03962da492b459a5909a5f597fa4a7332
