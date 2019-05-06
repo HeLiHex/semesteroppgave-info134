@@ -53,7 +53,68 @@ function detaljer(kom) {
                   result.appendChild(utdanningprocent);
                   result.appendChild(utdanningantal);
                   table.appendChild(result);
-                  
+
+
+
+                  for (år in befolk.getInfo(kom).Menn) {
+
+                      //befolkning
+                      var tabell = document.getElementById("befolkning");
+                      var årstall = document.createElement("tr");
+                      var befolkning = document.createElement("td");
+                      var kvinner = document.createElement("td");
+                      var menn = document.createElement("td");
+
+                      årstall.innerHTML = år;
+                      kvinner.innerHTML = temp.Kvinner[år];
+                      menn.innerHTML = temp.Menn[år];
+                      befolkning.innerHTML =  temp.Kvinner[år] + 0 + temp.Menn[år];
+                      årstall.innerHTML += "<td>" + kvinner.innerHTML + "</td>" + "<td>" + menn.innerHTML + "</td>" + "<td>"+ befolkning.innerHTML + "</td>";
+                      tabell.appendChild(årstall);
+
+                      //sysselsetting
+                      var tabellSyssel = document.getElementById("sysselsatte");
+                      var årstallSyssel = document.createElement("tr");
+                      var sysselsatte = document.createElement("td");
+                      var kvinnerSyssel = document.createElement("td");
+                      var mennSyssel = document.createElement("td");
+
+                      årstallSyssel.innerHTML = år;
+                      sysselsatte.innerHTML = syssel.getInfo(kom).Begge[år];
+                      kvinnerSyssel.innerHTML = syssel.getInfo(kom).Kvinner[år];
+                      mennSyssel.innerHTML = syssel.getInfo(kom).Menn[år];
+                      årstallSyssel.innerHTML += "<td>" + kvinnerSyssel.innerHTML + "</td>" +"<td>" + mennSyssel.innerHTML + "</td>" +"<td>" + sysselsatte.innerHTML + "</td>";
+                      tabellSyssel.appendChild(årstallSyssel);
+                  }
+
+                  for (år in utdanning.getInfo(kom).Grunnskole.Menn) {
+                    var tabell = document.getElementById("utdanning");
+                    var årstall = document.createElement("tr");
+                    var grunnskole = document.createElement("td");
+                    var vgs = document.createElement("td");
+                    var fagskole = document.createElement("td");
+                    var bachelor = document.createElement("td");
+                    var master = document.createElement("td");
+                    var ingen = document.createElement("td");
+
+                    årstall.innerHTML = år;
+                    grunnskolemenn = utdanning.getInfo(kom).Grunnskole.Menn[år];
+                    grunnskolekvinner = utdanning.getInfo(kom).Grunnskole.Kvinner[år];
+                    grunnskole.innerHTML = parseInt(grunnskolemenn + grunnskolekvinner);
+
+                    vgsmenn = utdanning.getInfo(kom).Videregående.Menn[år];
+                    vgskvinner = utdanning.getInfo(kom).Videregående.Kvinner[år];
+                    vgs.innerHTML = parseInt(vgsmenn + vgskvinner);
+
+                    fagskolemenn = utdanning.getInfo(kom).Fagskole.Menn[år];
+                    fagskolekvinner = utdanning.getInfo(kom).Fagskole.Kvinner[år];
+                    fagskole.innerHTML = parseInt(fagskolemenn + fagskolekvinner);
+
+                    årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>";
+                    tabell.appendChild(årstall);
+
+                  }
+
 
 
                   //document.getElementById("detaljer").innerHTML = kommunenamn[i]+" | "+ kommunenummer[i];
