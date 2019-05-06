@@ -1,9 +1,13 @@
+body{
+  background-color: #f9f2ec;
+}
+
 .header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    background: #1abc9c;
+    background: #90AFC5;
     color: white;
     font-size: 30px;
 }
@@ -15,7 +19,7 @@ button {
     height: 60px;
     margin: 10px;
 
-    color: #444;
+    color: black;
     background-color: #f9f2ec;
     border: 0 none;
     border-radius: 4px;
@@ -29,7 +33,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    background: #1abc9c;
+    background: #336B87;
     color: black;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -41,14 +45,14 @@ button {
 
 .footer {
     text-align: center;
-    background: #0003;
+    background: #90AFC5;
     color: black;
     font-size: 12px;
 }
 
 input{
     margin: 20px;
-    color: #444;
+    color: black;
     background: #f9f2ec;
     border: 0 none;
     border-radius: 4px;
@@ -59,7 +63,7 @@ input{
 }
 
 table {
-    background: #fff;
+    background: #f9f2ec;
     color: inherit;
     table-layout: fixed;
     width: 100%;
@@ -67,17 +71,17 @@ table {
 }
 
 tr:nth-child(odd) {
-  background: #AFFAFA;
+  background: #90AFC5;
   color: inherit;
 }
 
 tr:nth-child(even) {
-  background: #FAF9F9;
+  background: #f9f2ec;
   color: inherit;
 }
 
 th{
-    background: gold;
+    background: #336B87;
     color: inherit;
     height: 60px;
 }
