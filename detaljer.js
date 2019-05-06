@@ -24,6 +24,7 @@ function detaljer(kom) {
         var tabell = document.getElementById("befolkning");
         var tabellSyssel = document.getElementById("sysselsatte");
         var tabellUtd = document.getElementById("sysselsatte");
+        var tabell2 = document.getElementById("utdanning");
 
         var utdanMen1 = utdanning.getInfo(kom).Bachelor.Menn[2017];
         var utdanMen2 = utdanning.getInfo(kom).Master.Menn[2017];
@@ -49,6 +50,10 @@ function detaljer(kom) {
     }
           while(tabellUtd.firstChild){
       tabellUtd.removeChild(tabellUtd.firstChild);
+    }
+
+              while(tabell2.firstChild){
+      tabell2.removeChild(tabell2.firstChild);
     }
 
         for (i in kommunenamn){
@@ -227,7 +232,6 @@ function detaljer(kom) {
                       break;
                     }
 
-                    var tabell = document.getElementById("utdanning");
                     var årstall = document.createElement("tr");
                     var grunnskole = document.createElement("td");
                     var vgs = document.createElement("td");
@@ -272,7 +276,7 @@ function detaljer(kom) {
                     ingen.innerHTML = num6.toFixed(1);
 
                     årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>"+  "<td>" + bachelor.innerHTML + "</td>" +"<td>" + master.innerHTML + "</td>" +"<td>" + ingen.innerHTML + "</td>";
-                    tabell.appendChild(årstall);
+                    tabell2.appendChild(årstall);
                   }
          }
         }

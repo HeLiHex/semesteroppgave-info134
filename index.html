@@ -11,7 +11,7 @@
     <script src="detaljer.js" type="text/javascript" defer></script>
 </head>
 
-<body onload="hideFunction('Detaljer')">
+<body onload="hideFunction('Introduksjon')">
     <nav class="header">
         <button onclick="hideFunction('Introduksjon')">Introduksjon</button>
         <button onclick="hideFunction('Oversikt')">Oversikt</button>
@@ -21,17 +21,22 @@
 
     <div class="body">
         <div class="intro">
-            <p>
-                Denne nettsiden inneholder data om utdanning, sysselsetting og befolkning i Norge.
-                Nettsiden inneholder hovedsakelig av tre funksjoner: <br>
-                1. Oversikt - gir en oversikt over alle kommuner i Norge og kommunenes nåværende befolkning. <br>
-                2. Detaljer - her kan man søke opp kommuner etter kommunenummer. Detaljer gir detaljert historisk informasjon om kommunens utdanning, sysselsetting og befolkning. <br>
-                3. Sammenligning - her kan man sammenligne sysselsettingen i to kommuner. Oversikten viser andel sysselsatte kvinner og menn, og historiske endringer. Endringen til kommunen med størst endring markeres med grønt. <br>
-                <br>
-                Informasjonen som er brukt er hentet fra Statistisk sentralbyrå, og relevante lenker til deres nettsider kan finnes under.
+            
+               <p> Denne nettsiden inneholder data om utdanning, sysselsetting og befolkning i Norge.
+                Nettsiden inneholder hovedsakelig tre funksjoner: </p>
+            <ul>
+                <li><p>Oversikt</p> Gir en oversikt over alle kommuner i Norge og kommunenes nåværende befolkning. </li>
+                <li>
+                <p>Detaljer</p> Her kan man søke opp kommuner etter kommunenummer. Detaljer gir detaljert historisk informasjon om kommunens utdanning, sysselsetting og befolkning. 
+                </li>
+                <li>
+                <p>Sammenligning</p> Her kan man sammenligne sysselsettingen i to kommuner. Oversikten viser andel sysselsatte kvinner og menn, og historiske endringer. Endringen til kommunen med størst endring markeres med grønt. 
+                </li>
 
-                <br>Merk at dataene som presenteres på denne nettsiden kan inneholde feil.
-            </p>
+                <p id ="nede"> Informasjonen som er brukt er hentet fra Statistisk sentralbyrå, og relevante lenker til deres nettsider kan finnes under.
+                Merk at dataene som presenteres på denne nettsiden kan inneholde feil.</p>
+            </ul>
+
             <a href="http://data.ssb.no/api/v0/dataset/104857?lang=no">Befolkning</a>
             <a href="http://data.ssb.no/api/v0/dataset/100145?lang=no">Sysselsatte</a>
             <a href="http://data.ssb.no/api/v0/dataset/85432?lang=no">Utdanning</a>
