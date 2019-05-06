@@ -119,15 +119,15 @@ function detaljer(kom) {
                   var kvinnerHeader = document.createElement("th");
                   var mennHeader = document.createElement("th");
                   var totalHeader = document.createElement("th");
-                  var befolkHeader = document.createElement("th");
+                  //var befolkHeader = document.createElement("th");
 
                   årHeader.innerHTML = "Årstall";
                   kvinnerHeader.innerHTML = "Kvinner";
                   mennHeader.innerHTML = "Menn";
                   totalHeader.innerHTML = "Total befolkning";
-                  befolkHeader.innerHTML = "Befolkningshistorikk";
+                  //befolkHeader.innerHTML = "Befolkningshistorikk";
 
-                  row1.appendChild(befolkHeader);
+                  //row1.appendChild(befolkHeader);
                   tabellBefolk.appendChild(row1);
 
                   row2.appendChild(årHeader);
@@ -159,15 +159,15 @@ function detaljer(kom) {
                   var kvinnerHeader = document.createElement("th");
                   var mennHeader = document.createElement("th");
                   var totalHeader = document.createElement("th");
-                  var sysselHeader = document.createElement("th");
+                  //var sysselHeader = document.createElement("th");
 
                   årHeader.innerHTML = "Årstall";
                   kvinnerHeader.innerHTML = "Kvinner";
                   mennHeader.innerHTML = "Menn";
                   totalHeader.innerHTML = "Totalt sysselsatte";
-                  sysselHeader.innerHTML = "Sysselsettingshistorikk";
+                  //sysselHeader.innerHTML = "Sysselsettingshistorikk";
 
-                  rad1.appendChild(sysselHeader);
+                  //rad1.appendChild(sysselHeader);
                   tabellSyssel.appendChild(rad1);
 
                   rad2.appendChild(årHeader);
@@ -201,7 +201,7 @@ function detaljer(kom) {
                   var bachelorHeader = document.createElement("th");
                   var masterHeader = document.createElement("th");
                   var ingenUtdHeader = document.createElement("th");
-                  var utdHeader = document.createElement("th");
+                  //var utdHeader = document.createElement("th");
 
 
                   årHeader.innerHTML = "Årstall";
@@ -211,9 +211,9 @@ function detaljer(kom) {
                   bachelorHeader.innerHTML = "Bachelorgrad";
                   masterHeader.innerHTML = "Mastergrad";
                   ingenUtdHeader.innerHTML = "Ingen utdanning";
-                  utdHeader.innerHTML = "Utdanningshistorikk";
+                  //utdHeader.innerHTML = "Utdanningshistorikk";
 
-                  rad1.appendChild(utdHeader);
+                  //rad1.appendChild(utdHeader);
                   tabellUtd.appendChild(rad1);
 
                   rad2.appendChild(årHeader);

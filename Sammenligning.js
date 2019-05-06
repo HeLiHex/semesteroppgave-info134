@@ -145,39 +145,3 @@ function createHeader(table,kom1,kom2){
 
     table.appendChild(row);
 }
-
-/*
-function flipTable(table, container){
-
-    var newTable = document.createElement('table');
-    var maxColumns = 0;
-    // Find the max number of columns
-
-    var trNum = document.querySelectorAll("#sammenligningsTable")[0].children.length;
-
-
-    for(var r = 0; r < document.querySelectorAll("#sammenligningsTable")[0].children.length; r++) {
-        if(table.rows[r].cells.length > maxColumns) {
-        maxColumns = table.rows[r].cells.length;
-        }
-    }
-
-    for(var c = 0; c < trNum; c++) {
-        var row = document.createElement("tr");
-        //newTable.insertRow(c);
-        for(var r = 0; r < table.rows.length; r++) {
-            if(table.rows[r].length <= c) {
-                var td = document.createElement("td");
-                row.appendChild(td);
-                newTable.rows[c].insertCell(r);
-                newTable.rows[c].cells[r] = '-';
-            }
-            else {
-                newTable.rows[c].insertCell(r);
-                newTable.rows[c].cells[r].innerHTML = table.rows[r].cells[c].innerHTML;
-            }
-        }
-    }
-container.appendChild(newTable);
-
-}*/
