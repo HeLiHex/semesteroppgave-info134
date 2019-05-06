@@ -19,11 +19,10 @@ function detaljer(kom) {
         var kommunenamn = befolk.getNames();
         var kommunenummer = befolk.getIDs();
         var sysselkommun = syssel.getInfo(kom);
+
         var table = document.getElementById("detaljer2");
-        var tabellBefolk= document.getElementById("befolkning");
-        var tabell = document.getElementById("befolkning");
+        var tabellBefolk = document.getElementById("befolkning");
         var tabellSyssel = document.getElementById("sysselsatte");
-        var tabellUtd = document.getElementById("sysselsatte");
         var tabell2 = document.getElementById("utdanning");
 
         var utdanMen1 = utdanning.getInfo(kom).Bachelor.Menn[2017];
@@ -42,14 +41,9 @@ function detaljer(kom) {
           while(tabellBefolk.firstChild){
       tabellBefolk.removeChild(tabellBefolk.firstChild);
     }
-          while(tabell.firstChild){
-      tabell.removeChild(tabell.firstChild);
-    }
+
           while(tabellSyssel.firstChild){
       tabellSyssel.removeChild(tabellSyssel.firstChild);
-    }
-          while(tabellUtd.firstChild){
-      tabellUtd.removeChild(tabellUtd.firstChild);
     }
 
               while(tabell2.firstChild){
@@ -58,7 +52,7 @@ function detaljer(kom) {
 
         for (i in kommunenamn){
                if (kommunenummer[i] == kom) {
-                  var row = document.createElement("tr");
+                  var rad = document.createElement("tr");
                   var kommuneHeader = document.createElement("th");
                   var kommunenrHeader = document.createElement("th");
                   var befolkningHeader = document.createElement("th");
@@ -75,15 +69,15 @@ function detaljer(kom) {
                   utdanningHeader.innerHTML = "Utdannings%";
                   utdanningantallHeader.innerHTML = "Antall med høyere utdanning";
 
-                  row.appendChild(kommuneHeader);
-                  row.appendChild(kommunenrHeader);
-                  row.appendChild(befolkningHeader);
-                  row.appendChild(sysselsettingHeader);
-                  row.appendChild(sysselsettingantallHeader);
-                  row.appendChild(utdanningHeader);
-                  row.appendChild(utdanningantallHeader);
+                  rad.appendChild(kommuneHeader);
+                  rad.appendChild(kommunenrHeader);
+                  rad.appendChild(befolkningHeader);
+                  rad.appendChild(sysselsettingHeader);
+                  rad.appendChild(sysselsettingantallHeader);
+                  rad.appendChild(utdanningHeader);
+                  rad.appendChild(utdanningantallHeader);
 
-                  table.appendChild(row);
+                  table.appendChild(rad);
 
                   var result = document.createElement("tr");
                   var namn = document.createElement("td");
@@ -113,28 +107,22 @@ function detaljer(kom) {
                   table.appendChild(result);
 
                   //befolkningshistorikk
-                  var row1 = document.createElement("tr");
-                  var row2 = document.createElement("tr");
+                  var rad1 = document.createElement("tr");
                   var årHeader = document.createElement("th");
                   var kvinnerHeader = document.createElement("th");
                   var mennHeader = document.createElement("th");
                   var totalHeader = document.createElement("th");
-                  //var befolkHeader = document.createElement("th");
 
                   årHeader.innerHTML = "Årstall";
                   kvinnerHeader.innerHTML = "Kvinner";
                   mennHeader.innerHTML = "Menn";
                   totalHeader.innerHTML = "Total befolkning";
-                  //befolkHeader.innerHTML = "Befolkningshistorikk";
 
-                  //row1.appendChild(befolkHeader);
-                  tabellBefolk.appendChild(row1);
-
-                  row2.appendChild(årHeader);
-                  row2.appendChild(kvinnerHeader);
-                  row2.appendChild(mennHeader);
-                  row2.appendChild(totalHeader);
-                  tabellBefolk.appendChild(row2);
+                  rad1.appendChild(årHeader);
+                  rad1.appendChild(kvinnerHeader);
+                  rad1.appendChild(mennHeader);
+                  rad1.appendChild(totalHeader);
+                  tabellBefolk.appendChild(rad1);
 
                   for (år in befolk.getInfo(kom).Menn) {
                       //befolkning
@@ -148,27 +136,21 @@ function detaljer(kom) {
                       menn.innerHTML = temp.Menn[år];
                       befolkning.innerHTML =  temp.Kvinner[år] + 0 + temp.Menn[år];
                       årstall.innerHTML += "<td>" + kvinner.innerHTML + "</td>" + "<td>" + menn.innerHTML + "</td>" + "<td>"+ befolkning.innerHTML + "</td>";
-                      tabell.appendChild(årstall);
+                      tabellBefolk.appendChild(årstall);
                     }
 
 
                   //sysselhistorikk
-                  var rad1 = document.createElement("tr");
                   var rad2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
                   var kvinnerHeader = document.createElement("th");
                   var mennHeader = document.createElement("th");
                   var totalHeader = document.createElement("th");
-                  //var sysselHeader = document.createElement("th");
 
                   årHeader.innerHTML = "Årstall";
                   kvinnerHeader.innerHTML = "Kvinner";
                   mennHeader.innerHTML = "Menn";
                   totalHeader.innerHTML = "Totalt sysselsatte";
-                  //sysselHeader.innerHTML = "Sysselsettingshistorikk";
-
-                  //rad1.appendChild(sysselHeader);
-                  tabellSyssel.appendChild(rad1);
 
                   rad2.appendChild(årHeader);
                   rad2.appendChild(kvinnerHeader);
@@ -192,8 +174,7 @@ function detaljer(kom) {
                   }
 
 
-                  var rad1 = document.createElement("tr");
-                  var rad2 = document.createElement("tr");
+                  var rad3 = document.createElement("tr");
                   var årHeader = document.createElement("th");
                   var grunnskoleHeader = document.createElement("th");
                   var vgsHeader = document.createElement("th");
@@ -201,8 +182,6 @@ function detaljer(kom) {
                   var bachelorHeader = document.createElement("th");
                   var masterHeader = document.createElement("th");
                   var ingenUtdHeader = document.createElement("th");
-                  //var utdHeader = document.createElement("th");
-
 
                   årHeader.innerHTML = "Årstall";
                   grunnskoleHeader.innerHTML = "Grunnskole";
@@ -211,20 +190,16 @@ function detaljer(kom) {
                   bachelorHeader.innerHTML = "Bachelorgrad";
                   masterHeader.innerHTML = "Mastergrad";
                   ingenUtdHeader.innerHTML = "Ingen utdanning";
-                  //utdHeader.innerHTML = "Utdanningshistorikk";
 
-                  //rad1.appendChild(utdHeader);
-                  tabellUtd.appendChild(rad1);
+                  rad3.appendChild(årHeader);
+                  rad3.appendChild(grunnskoleHeader);
+                  rad3.appendChild(vgsHeader);
+                  rad3.appendChild(fagskoleHeader);
+                  rad3.appendChild(bachelorHeader);
+                  rad3.appendChild(masterHeader);
+                  rad3.appendChild(ingenUtdHeader);
 
-                  rad2.appendChild(årHeader);
-                  rad2.appendChild(grunnskoleHeader);
-                  rad2.appendChild(vgsHeader);
-                  rad2.appendChild(fagskoleHeader);
-                  rad2.appendChild(bachelorHeader);
-                  rad2.appendChild(masterHeader);
-                  rad2.appendChild(ingenUtdHeader);
-
-                  tabellUtd.appendChild(rad2);
+                  tabell2.appendChild(rad3);
 
                   for (år in befolk.getInfo(kom).Menn) {
                     //utdanning

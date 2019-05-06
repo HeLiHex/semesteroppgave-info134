@@ -66,6 +66,10 @@ table {
     color: inherit;
     table-layout: fixed;
     width: 100%;
+    margin-top: 20px;
+}
+th{
+  height: 40px;
 }
 
 tr:nth-child(odd) {
@@ -125,13 +129,5 @@ li {
     th, td {
         padding: .5rem;
         flex: 1 1;
-    }
-
-    thead {
-        position: sticky;
-    }
-
-    tbody {
-        overflow-x: auto;
     }
 }
