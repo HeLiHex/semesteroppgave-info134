@@ -28,42 +28,7 @@ function sammenlign() {
 		var kommune1Info = sysselsetting.getInfo(kommunenr1);
 		var kommune2Info = sysselsetting.getInfo(kommunenr2);
 
-		var kommune1namn = sysselsetting.getNamesKom(kommunenr1);
-		var kommune2namn = sysselsetting.getNamesKom(kommunenr2);
-
-		var row = document.createElement("tr");
-
-		var årHeader = document.createElement("th");
-		var kommune1HeaderMenn = document.createElement("th");
-		var kommune2HeaderMenn = document.createElement("th");
-		var kommune1HeaderKvinne = document.createElement("th");
-		var kommune2HeaderKvinne = document.createElement("th");
-		var endringkommune1mennHeader = document.createElement("th");
-		var endringkommune2mennHeader = document.createElement("th");
-		var endringkommune1kvinnerHeader = document.createElement("th");
-		var endringkommune2kvinnerHeader = document.createElement("th");
-
-		årHeader.innerHTML = "År";
-		kommune1HeaderMenn.innerHTML = "Menn i " + kommune1namn;
-		kommune2HeaderMenn.innerHTML = "Menn i " + kommune2namn;
-		kommune1HeaderKvinne.innerHTML = "Kvinner i " + kommune1namn;
-		kommune2HeaderKvinne.innerHTML = "Kvinner i " + kommune2namn;
-		endringkommune1mennHeader.innerHTML = "Endring "+kommune1namn+" menn"
-		endringkommune2mennHeader.innerHTML = "Endring "+kommune2namn+" menn"
-		endringkommune1kvinnerHeader.innerHTML = "Endring "+kommune1namn+" kvinner"
-		endringkommune2kvinnerHeader.innerHTML = "Endring "+kommune2namn+" kvinner"
-
-		row.appendChild(årHeader);
-		row.appendChild(kommune1HeaderMenn);
-		row.appendChild(endringkommune1mennHeader);
-		row.appendChild(kommune2HeaderMenn);
-		row.appendChild(endringkommune2mennHeader);
-		row.appendChild(kommune1HeaderKvinne);
-		row.appendChild(endringkommune1kvinnerHeader);
-		row.appendChild(kommune2HeaderKvinne);
-		row.appendChild(endringkommune2kvinnerHeader);
-
-		table.appendChild(row);
+        createHeader(table);
 
 		for (år in kommune1Info.Menn) {
 			row = document.createElement("tr");
@@ -137,4 +102,44 @@ function sammenlign() {
 
 function endring(forrige, nåværende) {
 	return nåværende - current;
+}
+
+
+function createHeader(table){
+    var kommune1namn = sysselsetting.getNamesKom(kommunenr1);
+    var kommune2namn = sysselsetting.getNamesKom(kommunenr2);
+
+    var row = document.createElement("tr");
+
+    var årHeader = document.createElement("th");
+    var kommune1HeaderMenn = document.createElement("th");
+    var kommune2HeaderMenn = document.createElement("th");
+    var kommune1HeaderKvinne = document.createElement("th");
+    var kommune2HeaderKvinne = document.createElement("th");
+    var endringkommune1mennHeader = document.createElement("th");
+    var endringkommune2mennHeader = document.createElement("th");
+    var endringkommune1kvinnerHeader = document.createElement("th");
+    var endringkommune2kvinnerHeader = document.createElement("th");
+
+    årHeader.innerHTML = "År";
+    kommune1HeaderMenn.innerHTML = "Menn i " + kommune1namn;
+    kommune2HeaderMenn.innerHTML = "Menn i " + kommune2namn;
+    kommune1HeaderKvinne.innerHTML = "Kvinner i " + kommune1namn;
+    kommune2HeaderKvinne.innerHTML = "Kvinner i " + kommune2namn;
+    endringkommune1mennHeader.innerHTML = "Endring "+kommune1namn+" menn"
+    endringkommune2mennHeader.innerHTML = "Endring "+kommune2namn+" menn"
+    endringkommune1kvinnerHeader.innerHTML = "Endring "+kommune1namn+" kvinner"
+    endringkommune2kvinnerHeader.innerHTML = "Endring "+kommune2namn+" kvinner"
+
+    row.appendChild(årHeader);
+    row.appendChild(kommune1HeaderMenn);
+    row.appendChild(endringkommune1mennHeader);
+    row.appendChild(kommune2HeaderMenn);
+    row.appendChild(endringkommune2mennHeader);
+    row.appendChild(kommune1HeaderKvinne);
+    row.appendChild(endringkommune1kvinnerHeader);
+    row.appendChild(kommune2HeaderKvinne);
+    row.appendChild(endringkommune2kvinnerHeader);
+
+    table.appendChild(row);
 }
