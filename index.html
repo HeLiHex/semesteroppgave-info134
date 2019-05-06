@@ -42,10 +42,10 @@
 
         <div class="detaljer">
             Skriv kommunnummer her:
-            <form method="POST">
-                <input id="inputnummer" type="text" name="nummer">
-                <input type="button" value="Hent info" onclick="detaljer(document.getElementById('inputnummer').value);">
-            </form>
+
+                 <input id="inputnummer" type="text" name="nummer">
+
+                <input type="button" id="btnSearch" value="Hent info" onclick="detaljer(document.getElementById('inputnummer').value);">
 
             <table id="detaljer2">
             <tr>
@@ -105,7 +105,7 @@
                     Kommune 2:<br>
                     <input id="kommunenr2" type="text" name="kommunenummer2">
                 </p>
-                <input type="button" value="Sammenlign" onclick="sammenlign();">
+                <input id ="sambutton" type="button" value="Sammenlign" onclick="sammenlign();">
             </form>
 
             <table id="sammenligningsTable">

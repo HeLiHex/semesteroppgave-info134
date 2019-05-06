@@ -5,6 +5,14 @@ var urlutdanning = "http://wildboy.uib.no/~tpe056/folk/85432.json";
 var syssel = new Sysselsetting(urlsyssel);
 var utdanning = new Utdanning(urlutdanning);
 
+        var input = document.getElementById("inputnummer");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("btnSearch").click();
+    }
+});
+
 function detaljer(kom) {
        syssel.onload = function(){
       utdanning.onload = function(){

@@ -33,6 +33,9 @@ function Sysselsetting(url) {
 	this.getInfo = function(kom) {
 		return getInfosyssel(kom, this.data);
 	};
+	this.getNamesKom = function(kom){
+		return getNamesKom(kom,this.data);
+	};
 }
 
 function Befolkning(url) {
@@ -74,6 +77,14 @@ function getNames(data) {
 	return list;
 }
 
+function getNamesKom(kommunenummer,data){
+	for(i in data.elementer){
+		if(kommunenummer == data.elementer[i].kommunenummer)
+			return i;
+	}
+
+}
+
 function getIDs(data) {
 	var list = [];
 	for (i in data.elementer) {
@@ -83,8 +94,6 @@ function getIDs(data) {
 }
 
 function getInfo(kommunenummer,data){
-    var list = [];
-    var list2 = [];
     for(i in data.elementer){
     	if (kommunenummer == data.elementer[i].kommunenummer) {
         	    return (obj = {
@@ -96,8 +105,6 @@ function getInfo(kommunenummer,data){
 }
 
 function getInfosyssel(kommunenummer,data){
-    var list = [];
-    var list2 = [];
     for(i in data.elementer){
     	if (kommunenummer == data.elementer[i].kommunenummer) {
         	    return (obj = {
