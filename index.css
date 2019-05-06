@@ -52,7 +52,7 @@ table {
   box-shadow: 2px 5px 10px;
 }
 
-tr:nth-child(odd) {
+/*tr:nth-child(odd) {
   background-color: #AFFAFA;
 }
 
@@ -61,7 +61,7 @@ tr:nth-child(even) {
 }
 td:nth-child(odd){
     color: blue;
-}
+}*/
 
 .marked{
     background-color: red;
