@@ -18,7 +18,13 @@ function detaljer(kom) {
       utdanning.onload = function(){
         var kommunenamn = befolk.getNames();
         var kommunenummer = befolk.getIDs();
-        var sysselkommun = syssel.getInfo(kom)
+        var sysselkommun = syssel.getInfo(kom);
+        var table = document.getElementById("detaljer2");
+        var tabellBefolk= document.getElementById("befolkning");
+        var tabell = document.getElementById("befolkning");
+        var tabellSyssel = document.getElementById("sysselsatte");
+        var tabellUtd = document.getElementById("sysselsatte");
+        var tabell2 = document.getElementById("utdanning");
 
         var utdanMen1 = utdanning.getInfo(kom).Bachelor.Menn[2017];
         var utdanMen2 = utdanning.getInfo(kom).Master.Menn[2017];
@@ -30,9 +36,28 @@ function detaljer(kom) {
 
         var total = utdanKvinnTotal + utdanMenTotal;
 
+      while(table.firstChild){
+      table.removeChild(table.firstChild);
+    }
+          while(tabellBefolk.firstChild){
+      tabellBefolk.removeChild(tabellBefolk.firstChild);
+    }
+          while(tabell.firstChild){
+      tabell.removeChild(tabell.firstChild);
+    }
+          while(tabellSyssel.firstChild){
+      tabellSyssel.removeChild(tabellSyssel.firstChild);
+    }
+          while(tabellUtd.firstChild){
+      tabellUtd.removeChild(tabellUtd.firstChild);
+    }
+
+              while(tabell2.firstChild){
+      tabell2.removeChild(tabell2.firstChild);
+    }
+
         for (i in kommunenamn){
                if (kommunenummer[i] == kom) {
-                  var table = document.getElementById("detaljer2");
                   var row = document.createElement("tr");
                   var kommuneHeader = document.createElement("th");
                   var kommunenrHeader = document.createElement("th");
@@ -88,7 +113,6 @@ function detaljer(kom) {
                   table.appendChild(result);
 
                   //befolkningshistorikk
-                  var tabellBefolk= document.getElementById("befolkning");
                   var row1 = document.createElement("tr");
                   var row2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
@@ -114,7 +138,6 @@ function detaljer(kom) {
 
                   for (år in befolk.getInfo(kom).Menn) {
                       //befolkning
-                      var tabell = document.getElementById("befolkning");
                       var årstall = document.createElement("tr");
                       var befolkning = document.createElement("td");
                       var kvinner = document.createElement("td");
@@ -130,7 +153,6 @@ function detaljer(kom) {
 
 
                   //sysselhistorikk
-                  var tabellSyssel = document.getElementById("sysselsatte");
                   var rad1 = document.createElement("tr");
                   var rad2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
@@ -170,7 +192,6 @@ function detaljer(kom) {
                   }
 
 
-                  var tabellUtd = document.getElementById("sysselsatte");
                   var rad1 = document.createElement("tr");
                   var rad2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
@@ -211,7 +232,6 @@ function detaljer(kom) {
                       break;
                     }
 
-                    var tabell = document.getElementById("utdanning");
                     var årstall = document.createElement("tr");
                     var grunnskole = document.createElement("td");
                     var vgs = document.createElement("td");
@@ -256,7 +276,7 @@ function detaljer(kom) {
                     ingen.innerHTML = num6.toFixed(1);
 
                     årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>"+  "<td>" + bachelor.innerHTML + "</td>" +"<td>" + master.innerHTML + "</td>" +"<td>" + ingen.innerHTML + "</td>";
-                    tabell.appendChild(årstall);
+                    tabell2.appendChild(årstall);
                   }
          }
         }
