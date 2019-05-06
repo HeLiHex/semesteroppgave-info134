@@ -28,7 +28,11 @@ function sammenlign() {
 		var kommune1Info = sysselsetting.getInfo(kommunenr1);
 		var kommune2Info = sysselsetting.getInfo(kommunenr2);
 
-        createHeader(table);
+		while(table.firstChild){
+			table.removeChild(table.firstChild);
+		}
+
+		createHeader(table,kommunenr1,kommunenr2);
 
 		for (år in kommune1Info.Menn) {
 			row = document.createElement("tr");
@@ -94,6 +98,7 @@ function sammenlign() {
 		}
 
 
+
 		var rad = document.createElement("tr");
 		var colonne = document.createElement("td");
 	};
@@ -105,9 +110,9 @@ function endring(forrige, nåværende) {
 }
 
 
-function createHeader(table){
-    var kommune1namn = sysselsetting.getNamesKom(kommunenr1);
-    var kommune2namn = sysselsetting.getNamesKom(kommunenr2);
+function createHeader(table,kom1,kom2){
+    var kommune1namn = sysselsetting.getNamesKom(kom1);
+    var kommune2namn = sysselsetting.getNamesKom(kom2);
 
     var row = document.createElement("tr");
 

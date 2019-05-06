@@ -18,7 +18,12 @@ function detaljer(kom) {
       utdanning.onload = function(){
         var kommunenamn = befolk.getNames();
         var kommunenummer = befolk.getIDs();
-        var sysselkommun = syssel.getInfo(kom)
+        var sysselkommun = syssel.getInfo(kom);
+        var table = document.getElementById("detaljer2");
+        var tabellBefolk= document.getElementById("befolkning");
+        var tabell = document.getElementById("befolkning");
+        var tabellSyssel = document.getElementById("sysselsatte");
+        var tabellUtd = document.getElementById("sysselsatte");
 
         var utdanMen1 = utdanning.getInfo(kom).Bachelor.Menn[2017];
         var utdanMen2 = utdanning.getInfo(kom).Master.Menn[2017];
@@ -30,9 +35,24 @@ function detaljer(kom) {
 
         var total = utdanKvinnTotal + utdanMenTotal;
 
+      while(table.firstChild){
+      table.removeChild(table.firstChild);
+    }
+          while(tabellBefolk.firstChild){
+      tabellBefolk.removeChild(tabellBefolk.firstChild);
+    }
+          while(tabell.firstChild){
+      tabell.removeChild(tabell.firstChild);
+    }
+          while(tabellSyssel.firstChild){
+      tabellSyssel.removeChild(tabellSyssel.firstChild);
+    }
+          while(tabellUtd.firstChild){
+      tabellUtd.removeChild(tabellUtd.firstChild);
+    }
+
         for (i in kommunenamn){
                if (kommunenummer[i] == kom) {
-                  var table = document.getElementById("detaljer2");
                   var row = document.createElement("tr");
                   var kommuneHeader = document.createElement("th");
                   var kommunenrHeader = document.createElement("th");
@@ -88,7 +108,6 @@ function detaljer(kom) {
                   table.appendChild(result);
 
                   //befolkningshistorikk
-                  var tabellBefolk= document.getElementById("befolkning");
                   var row1 = document.createElement("tr");
                   var row2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
@@ -114,7 +133,6 @@ function detaljer(kom) {
 
                   for (år in befolk.getInfo(kom).Menn) {
                       //befolkning
-                      var tabell = document.getElementById("befolkning");
                       var årstall = document.createElement("tr");
                       var befolkning = document.createElement("td");
                       var kvinner = document.createElement("td");
@@ -130,7 +148,6 @@ function detaljer(kom) {
 
 
                   //sysselhistorikk
-                  var tabellSyssel = document.getElementById("sysselsatte");
                   var rad1 = document.createElement("tr");
                   var rad2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
@@ -170,7 +187,6 @@ function detaljer(kom) {
                   }
 
 
-                  var tabellUtd = document.getElementById("sysselsatte");
                   var rad1 = document.createElement("tr");
                   var rad2 = document.createElement("tr");
                   var årHeader = document.createElement("th");
