@@ -41,6 +41,18 @@ button {
     font-size: 12px;
 }
 
+input{
+    margin: 20px;
+    color: #444;
+    background-color: #f9f2ec;
+    border: 0 none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: Times, georgia, serif;
+    font-weight: bold;
+    flex: 0 0 160px;
+}
+
 table {
     background-color: #fff;
     color: #000;
