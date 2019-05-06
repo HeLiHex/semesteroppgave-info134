@@ -28,10 +28,10 @@ function sammenlign() {
 		kommune2HeaderMenn.innerHTML = "Menn i kommune 2";
 		kommune1HeaderKvinne.innerHTML = "Kvinner i kommune 1";
 		kommune2HeaderKvinne.innerHTML = "Kvinner i kommune 2";
-		endringkommune1mennHeader.innerHTML = "endring kommune 1 menn"
-		endringkommune2mennHeader.innerHTML = "endring kommune 2 menn"
-		endringkommune1kvinnerHeader.innerHTML = "endring kommune 1 kvinner"
-		endringkommune2kvinnerHeader.innerHTML = "endring kommune 2 kvinner"
+		endringkommune1mennHeader.innerHTML = "Endring kommune 1 menn"
+		endringkommune2mennHeader.innerHTML = "Endring kommune 2 menn"
+		endringkommune1kvinnerHeader.innerHTML = "Endring kommune 1 kvinner"
+		endringkommune2kvinnerHeader.innerHTML = "Endring kommune 2 kvinner"
 
 		row.appendChild(årHeader);
 		row.appendChild(kommune1HeaderMenn);
@@ -76,6 +76,25 @@ function sammenlign() {
 				endringkommune2kvinner.innerHTML =  (kommune2Info.Kvinner[år] - kommune2Info.Kvinner[år-1]).toFixed(1);
 			}
 
+			console.log(endringkommune1menn);
+			if (parseFloat(endringkommune1menn.innerHTML) > parseFloat(endringkommune2menn.innerHTML)) {
+				endringkommune1menn.classList.add('marked');
+			} else if (parseFloat(endringkommune1menn.innerHTML) < parseFloat(endringkommune2menn.innerHTML)){
+				endringkommune2menn.classList.add('marked');
+			} else {
+				endringkommune2menn.classList.add('marked');
+				endringkommune1menn.classList.add('marked');
+			}
+
+			if (parseFloat(endringkommune1kvinner.innerHTML) > parseFloat(endringkommune2kvinner.innerHTML)) {
+				endringkommune1kvinner.classList.add('marked');
+			} else if (parseFloat(endringkommune1kvinner.innerHTML) < parseFloat(endringkommune2kvinner.innerHTML)){
+				endringkommune2kvinner.classList.add('marked');
+			} else {
+				endringkommune2kvinner.classList.add('marked');
+				endringkommune1kvinner.classList.add('marked');
+			}
+
 			row.appendChild(årstall);
 			row.appendChild(prosentMennKommune1);
 			row.appendChild(endringkommune1menn);
@@ -89,18 +108,10 @@ function sammenlign() {
 			table.appendChild(row);
 		}
 
-		//Menn
-		console.log(kommune1Info.Menn);
-		console.log(kommune2Info.Menn);
-
-		//Kvinner
-		console.log(kommune1Info.Kvinner);
-		console.log(kommune2Info.Kvinner);
 
 		var rad = document.createElement("tr");
 		var colonne = document.createElement("td");
 	};
-	console.log(kommunenr1 + " " + kommunenr2);
 	sysselsetting.load();
 }
 
