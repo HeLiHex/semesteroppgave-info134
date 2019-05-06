@@ -1,5 +1,5 @@
-body{
-  background-color: #f9f2ec;
+body {
+    background-color: #f9f2ec;
 }
 
 .header {
@@ -60,33 +60,22 @@ input {
     font-weight: bold;
     flex: 0 0 160px;
 }
+
 table {
     background: #f9f2ec;
     color: inherit;
     table-layout: fixed;
     width: 100%;
-
 }
-
-@media(max-width: 760px){
-  tr { 
-  display: block; 
-  float: left; 
-}
-th, td { 
-  display: block; 
-}
-
-  }
 
 tr:nth-child(odd) {
-  background: #90AFC5;
-  color: inherit;
+    background: #90AFC5;
+    color: inherit;
 }
 
 tr:nth-child(even) {
-  background: #f9f2ec;
-  color: inherit;
+    background: #f9f2ec;
+    color: inherit;
 }
 
 .marked {
@@ -95,19 +84,54 @@ tr:nth-child(even) {
 }
 
 p {
- font-family: Times, georgia, serif;
- font-size: 20px;
- font-weight: bold;
-}
-#nede{
- font-family: Times, georgia, serif;
- font-style: italic;
- font-size: 20px;
- font-weight: normal;
-
+    font-family: Times, georgia, serif;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-li{
-  list-style-type: none;
+#nede {
+    font-family: Times, georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: normal;
 }
 
+li {
+    list-style-type: none;
+}
+
+
+@media (max-width: 760px) {
+    table {
+        white-space: nowrap;
+        font-size: 0;
+        flex-wrap: nowrap;
+        display: flex;
+    }
+
+    table * {
+        font-size: 1rem;
+    }
+
+    tbody {
+        display: flex;
+    }
+
+    tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    th, td {
+        padding: .5rem;
+        flex: 1 1;
+    }
+
+    thead {
+        position: sticky;
+    }
+
+    tbody {
+        overflow-x: auto;
+    }
+}
