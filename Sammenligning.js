@@ -65,8 +65,6 @@ function sammenlign() {
 				endringkommune2kvinner.innerHTML =  (kommune2Info.Kvinner[år] - kommune2Info.Kvinner[år-1]).toFixed(1);
 			}
 
-
-			console.log(endringkommune1menn);
 			if (parseFloat(endringkommune1menn.innerHTML) > parseFloat(endringkommune2menn.innerHTML)) {
 				endringkommune1menn.classList.add('marked');
 			} else if (parseFloat(endringkommune1menn.innerHTML) < parseFloat(endringkommune2menn.innerHTML)){
@@ -98,7 +96,6 @@ function sammenlign() {
 			table.appendChild(row);
 		}
 
-        flipTable(table, container);
 
 
 		var rad = document.createElement("tr");
@@ -151,20 +148,28 @@ function createHeader(table,kom1,kom2){
     table.appendChild(row);
 }
 
+/*
 function flipTable(table, container){
     var newTable = document.createElement('table');
     var maxColumns = 0;
     // Find the max number of columns
-    for(var r = 0; r < table.rows.length; r++) {
+
+    var trNum = document.querySelectorAll("#sammenligningsTable")[0].children.length;
+
+
+    for(var r = 0; r < document.querySelectorAll("#sammenligningsTable")[0].children.length; r++) {
         if(table.rows[r].cells.length > maxColumns) {
         maxColumns = table.rows[r].cells.length;
         }
     }
 
-    for(var c = 0; c < maxColumns; c++) {
-        newTable.insertRow(c);
+    for(var c = 0; c < trNum; c++) {
+        var row = document.createElement("tr");
+        //newTable.insertRow(c);
         for(var r = 0; r < table.rows.length; r++) {
             if(table.rows[r].length <= c) {
+                var td = document.createElement("td");
+                row.appendChild(td);
                 newTable.rows[c].insertCell(r);
                 newTable.rows[c].cells[r] = '-';
             }
@@ -176,4 +181,4 @@ function flipTable(table, container){
     }
 container.appendChild(newTable);
 
-}
+}*/

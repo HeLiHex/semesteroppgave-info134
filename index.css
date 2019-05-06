@@ -14,7 +14,6 @@ button {
     width: 200px;
     height: 60px;
     margin: 10px;
-
     color: #444;
     background-color: #f9f2ec;
     border: 0 none;
@@ -35,8 +34,8 @@ button {
     margin-bottom: 10px;
 }
 
-.body li{
-  text-align: left;
+.body li {
+    text-align: left;
 }
 
 .footer {
@@ -46,7 +45,7 @@ button {
     font-size: 12px;
 }
 
-input{
+input {
     margin: 20px;
     color: #444;
     background: #f9f2ec;
@@ -58,55 +57,64 @@ input{
     flex: 0 0 160px;
 }
 
-table {
-    background: #fff;
-    color: inherit;
-    table-layout: fixed;
-    width: 100%;
+@media (max-width: 760px) {
+    table {
+        white-space: nowrap;
+        font-size: 0;
+        width: fit-content;
+        display: flex;
+    }
 
-}
+    tr {
+        display: block;
+        float: left;
+    }
 
-tr:nth-child(odd) {
-  background: #AFFAFA;
-  color: inherit;
-}
+    th, td {
+        display: block;
+    }
 
-tr:nth-child(even) {
-  background: #FAF9F9;
-  color: inherit;
-}
+    table {
+        background: #fff;
+        color: inherit;
+        table-layout: fixed;
+        width: 100%;
+    }
 
-th{
-    background: gold;
-    color: inherit;
-    height: 60px;
-}
+    tr:nth-child(odd) {
+        background: #AFFAFA;
+        color: inherit;
+    }
 
-.marked {
-    background: green;
-    color: inherit;
-}
+    tr:nth-child(even) {
+        background: #FAF9F9;
+        color: inherit;
+    }
 
-p {
- font-family: Times, georgia, serif;
- font-size: 20px;
- font-weight: bold;
-}
-#nede{
- font-family: Times, georgia, serif;
- font-style: italic;
- font-size: 20px;
- font-weight: normal;
+    th {
+        background: gold;
+        color: inherit;
+        height: 60px;
+    }
 
-}
+    .marked {
+        background: green;
+        color: inherit;
+    }
 
-li{
-  list-style-type: none;
-}
+    p {
+        font-family: Times, georgia, serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
 
+    #nede {
+        font-family: Times, georgia, serif;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: normal;
+    }
 
-
-
-
-
-
+    li {
+        list-style-type: none;
+    }
