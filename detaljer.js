@@ -87,7 +87,7 @@ function detaljer(kom) {
                       tabellSyssel.appendChild(årstallSyssel);
                   }
 
-                  for (år in befolk.getInfo(kom).Menn) {
+                  for (år in utdanning.getInfo(kom).Grunnskole.Menn) {
                     var tabell = document.getElementById("utdanning");
                     var årstall = document.createElement("tr");
                     var grunnskole = document.createElement("td");
@@ -98,9 +98,21 @@ function detaljer(kom) {
                     var ingen = document.createElement("td");
 
                     årstall.innerHTML = år;
-                    grunnskole.innerHTML = utdanning.getInfo(kom).Grunnskole[år];
-                    årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>";
+                    grunnskolemenn = utdanning.getInfo(kom).Grunnskole.Menn[år];
+                    grunnskolekvinner = utdanning.getInfo(kom).Grunnskole.Kvinner[år];
+                    grunnskole.innerHTML = parseInt(grunnskolemenn + grunnskolekvinner);
+
+                    vgsmenn = utdanning.getInfo(kom).Videregående.Menn[år];
+                    vgskvinner = utdanning.getInfo(kom).Videregående.Kvinner[år];
+                    vgs.innerHTML = parseInt(vgsmenn + vgskvinner);
+
+                    fagskolemenn = utdanning.getInfo(kom).Fagskole.Menn[år];
+                    fagskolekvinner = utdanning.getInfo(kom).Fagskole.Kvinner[år];
+                    fagskole.innerHTML = parseInt(fagskolemenn + fagskolekvinner);
+
+                    årstall.innerHTML += "<td>" + grunnskole.innerHTML + "</td>" +  "<td>" + vgs.innerHTML + "</td>" +  "<td>" + fagskole.innerHTML + "</td>";
                     tabell.appendChild(årstall);
+
                   }
 
 
