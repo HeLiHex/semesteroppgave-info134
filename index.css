@@ -2,7 +2,6 @@
 Kandidatnummer:
 193, 324,292
 */
-
 body {
     background-color: #f9f2ec;
     color: inherit;
@@ -114,7 +113,6 @@ p {
 li {
     list-style-type: none;
 }
-
 
 @media (max-width: 760px) {
     table {

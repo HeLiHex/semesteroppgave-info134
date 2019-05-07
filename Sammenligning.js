@@ -1,7 +1,5 @@
-/*
-Kandidatnummer:
-193, 324,292
-*/
+/* Kandidatnummer:
+193, 324,292 */
 
 var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
 
@@ -24,11 +22,9 @@ function sammenlign() {
     sysselsetting.load();
 }
 
-/*
-samenlignerer to elementer og markerer den høyeste ved å assigne html klassen marked
-dersom de er like blir begge markert
-*/
-function markHighest(one, two){
+/* samenlignerer to elementer og markerer den høyeste ved å assigne html klassen marked
+dersom de er like blir begge markert */
+function markHighest(one, two) {
     if (parseFloat(one.innerHTML) > parseFloat(two.innerHTML)) {
         one.classList.add('marked');
     } else if (parseFloat(one.innerHTML) < parseFloat(two.innerHTML)) {
@@ -40,7 +36,7 @@ function markHighest(one, two){
 }
 
 //Lager selve inholdet til tabellen ved å loope gjennom antall årstall og lage en rad med td elementer i som blir appendet til tabellen
-function createTable(table, kommune1Info, kommune2Info){
+function createTable(table, kommune1Info, kommune2Info) {
     for (år in kommune1Info.Menn) {
         var row = document.createElement("tr");
 
@@ -69,7 +65,6 @@ function createTable(table, kommune1Info, kommune2Info){
     }
 }
 
-
 //Lager headeren til tabellen ved å lage 9 th elementer i en rad og appender raden til tabellen
 function createHeader(table, kom1, kom2) {
     var kommune1namn = sysselsetting.getNamesKom(kom1);
@@ -90,13 +85,10 @@ function createHeader(table, kom1, kom2) {
     table.appendChild(row);
 }
 
-
-/*
-En funksjon som legger til en listener i de to inputfeltene.
+/* En funksjon som legger til en listener i de to inputfeltene.
 Eventlistnerne lytter etter keyCode = 13 som er enter.
-Når enter blir trykket vil sammenlignings knappen bli trykket
-*/
-function addEnterPressListener(){
+Når enter blir trykket vil sammenlignings knappen bli trykket */
+function addEnterPressListener() {
     var input1 = document.getElementById("kommunenr1");
     var input2 = document.getElementById("kommunenr2");
     input2.addEventListener("keyup", function(event) {
@@ -115,19 +107,16 @@ function addEnterPressListener(){
 }
 
 //sletter alt i tabellen
-function clearTable(table){
+function clearTable(table) {
     while (table.firstChild) {
         table.removeChild(table.firstChild);
     }
 }
 
-
-/*
-En funksjon som lager et htlm element av typen tag, setter innerHTML til string, og appender til en rad.
+/* En funksjon som lager et htlm element av typen tag, setter innerHTML til string, og appender til en rad.
 Funskjone blir brukt til å lage th og td-er som legges inn i en parameteret rad som er et tr element.
-Funksjonen returnerer elementet, men blir bare brukt i tilfellene der et element skal markeres.
-*/
-function createTableElement(rad, string, tag){
+Funksjonen returnerer elementet, men blir bare brukt i tilfellene der et element skal markeres. */
+function createTableElement(rad, string, tag) {
     var element = document.createElement(tag);
     element.innerHTML = string;
     rad.appendChild(element);
