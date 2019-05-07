@@ -9,9 +9,9 @@ Kandidatnummer:
     <title>Semesteroppgave</title>
     <script src="Datasett.js" type="text/javascript" defer></script>
     <script src="Sammenligning.js" type="text/javascript" defer></script>
-    <script src="befolkning.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="oversikt.js" type="text/javascript" defer></script>
     <script src="detaljer.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body onload="hideFunction('Introduksjon')">
@@ -57,16 +57,12 @@ Kandidatnummer:
             <input id="inputnummer" type="text" name="nummer">
             <input type="button" id="btnSearch" value="Hent info" onclick="detaljer(document.getElementById('inputnummer').value);">
             <table id="detaljer2">
-
             </table>
             <table id="befolkning">
-
             </table>
             <table id="sysselsatte">
-
             </table>
             <table id="utdanning">
-
             </table>
         </div>
         <div class="sammenligning" id="sammenligning">
@@ -82,7 +78,6 @@ Kandidatnummer:
                 <input id="sambutton" type="button" value="Sammenlign" onclick="sammenlign();">
             </form>
             <table id="sammenligningsTable">
-
             </table>
         </div>
     </div>
