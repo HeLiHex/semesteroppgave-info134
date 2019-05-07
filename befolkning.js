@@ -1,3 +1,7 @@
+/*
+Kandidatnummer:
+193, 324,292
+*/
 var url = "http://wildboy.uib.no/~tpe056/folk/104857.json";
 
 var kommuner = document.getElementById("oversikt");

@@ -1,3 +1,8 @@
+/*
+Kandidatnummer:
+193, 324,292
+*/
+
 //de 3 konstruktørene
 function Utdanning(url) {
     this.url = url;
