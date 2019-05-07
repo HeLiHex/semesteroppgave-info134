@@ -1,3 +1,8 @@
+/*
+Kandidatnummer:
+193, 324,292
+*/
+
 var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
 
 addEnterPressListener();
