@@ -22,18 +22,18 @@ function Sysselsetting(url) {
     this.load = function() {
         return load(url, this, this.onload);
     };
-	this.getNames = function() {
-		return getNames(this.data);
-	};
-	this.getIDs = function() {
-		return getIDs(this.data);
-	};
-	this.getInfo = function(kom) {
-		return getInfosyssel(kom, this.data);
-	};
-	this.getNamesKom = function(kom){
-		return getNamesKom(kom,this.data);
-	};
+    this.getNames = function() {
+        return getNames(this.data);
+    };
+    this.getIDs = function() {
+        return getIDs(this.data);
+    };
+    this.getInfo = function(kom) {
+        return getInfosyssel(kom, this.data);
+    };
+    this.getNamesKom = function(kom) {
+        return getNamesKom(kom, this.data);
+    };
 }
 //Befolknings datasett 
 function Befolkning(url) {
@@ -74,11 +74,11 @@ function getNames(data) {
     return list;
 }
 //get metode for spesifike kommuner
-function getNamesKom(kommunenummer,data){
-	for(i in data.elementer){
-		if(kommunenummer == data.elementer[i].kommunenummer)
-			return i;
-	}
+function getNamesKom(kommunenummer, data) {
+    for (i in data.elementer) {
+        if (kommunenummer == data.elementer[i].kommunenummer)
+            return i;
+    }
 }
 
 function getIDs(data) {
@@ -89,25 +89,26 @@ function getIDs(data) {
     return list;
 }
 
-function getInfo(kommunenummer,data){
-    for(i in data.elementer){
-    	if (kommunenummer == data.elementer[i].kommunenummer) {
-        	    return (obj = {
-				Menn: data.elementer[i].Menn,
-				Kvinner: data.elementer[i].Kvinner,
-			});
+function getInfo(kommunenummer, data) {
+    for (i in data.elementer) {
+        if (kommunenummer == data.elementer[i].kommunenummer) {
+            return (obj = {
+                Menn: data.elementer[i].Menn,
+                Kvinner: data.elementer[i].Kvinner,
+            });
         }
     }
 }
 
-function getInfosyssel(kommunenummer,data){
-    for(i in data.elementer){
-    	if (kommunenummer == data.elementer[i].kommunenummer) {
-        	    return (obj = {
-				Menn: data.elementer[i].Menn,
-				Kvinner: data.elementer[i].Kvinner,
-				Begge: data.elementer[i]["Begge kjønn"]
-			});        }
+function getInfosyssel(kommunenummer, data) {
+    for (i in data.elementer) {
+        if (kommunenummer == data.elementer[i].kommunenummer) {
+            return (obj = {
+                Menn: data.elementer[i].Menn,
+                Kvinner: data.elementer[i].Kvinner,
+                Begge: data.elementer[i]["Begge kjønn"]
+            });
+        }
     }
 }
 

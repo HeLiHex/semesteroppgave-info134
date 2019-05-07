@@ -67,8 +67,9 @@ table {
     width: 100%;
     margin-top: 20px;
 }
-th{
-  height: 40px;
+
+th {
+    height: 40px;
 }
 
 tr:nth-child(odd) {
@@ -125,7 +126,8 @@ li {
         flex-direction: column;
     }
 
-    th, td {
+    th,
+    td {
         padding: .5rem;
         flex: 1 1;
     }
