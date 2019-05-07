@@ -34,8 +34,8 @@ function markHighest(one, two){
     } else if (parseFloat(one.innerHTML) < parseFloat(two.innerHTML)) {
         two.classList.add('marked');
     } else {
-        two.classList.add('marked');
-        one.classList.add('marked');
+        two.classList.add('markedEqual');
+        one.classList.add('markedEqual');
     }
 }
 

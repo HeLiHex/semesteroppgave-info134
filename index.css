@@ -93,6 +93,11 @@ tr:nth-child(even) {
     color: inherit;
 }
 
+.markedEqual {
+    background: gold;
+    color: inherit;
+}
+
 p {
     font-family: Times, georgia, serif;
     font-size: 20px;
