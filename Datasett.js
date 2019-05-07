@@ -15,7 +15,7 @@ function Utdanning(url) {
         return getInfoUtdanning(kom, this.data);
     };
 }
-
+//Data for sysselsetting
 function Sysselsetting(url) {
     this.url = url;
     this.onload = null;
@@ -35,7 +35,7 @@ function Sysselsetting(url) {
 		return getNamesKom(kom,this.data);
 	};
 }
-
+//Befolknings datasett 
 function Befolkning(url) {
     this.url = url;
     this.onload = null;
@@ -73,13 +73,12 @@ function getNames(data) {
     }
     return list;
 }
-
+//get metode for spesifike kommuner
 function getNamesKom(kommunenummer,data){
 	for(i in data.elementer){
 		if(kommunenummer == data.elementer[i].kommunenummer)
 			return i;
 	}
-
 }
 
 function getIDs(data) {
