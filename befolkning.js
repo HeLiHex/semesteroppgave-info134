@@ -1,29 +1,11 @@
 
 
 var url = "http://wildboy.uib.no/~tpe056/folk/104857.json";
-/*xhr.open("GET",url);
-xhr.onreadystatechange = function(){
-	if(xhr.readyState == 4 && xhr.status===200){
-		var responseObj = JSON.parse(xhr.responseText);
-		for (i in responseObj.elementer) {
-			var komstring = document.createElement("tr");
-			var nrstring = document.createElement("td");
-			var befolkstring = document.createElement("td");
-			befolkstring.innerHTML = totaltInnbyggere(responseObj);
-			nrstring.innerHTML = responseObj.elementer[i].kommunenummer;
-			komstring.innerHTML = "<td>"+i+"</td>"+nrstring.innerHTML + "<td>"+ befolkstring.innerHTML;
-			kommuner.appendChild(komstring);
-		}
-	}
-}
-xhr.send();
-*/
 
 var kommuner = document.getElementById("oversikt");
 var befolk = new Befolkning(url);
 	befolk.onload = function(){
 	var kommunenummer = befolk.getIDs();
-
 		for (i in kommunenummer) {
 			var komstring = document.createElement("tr");
 			var nrstring = document.createElement("td");
@@ -33,7 +15,6 @@ var befolk = new Befolkning(url);
 			var temp = befolk.getInfo(kommunenummer[i]);
 			befolkstring.innerHTML = temp.Kvinner[2018] + 0 + temp.Menn[2018];
 
-			
 			komstring.innerHTML = "<td>"+i+"</td>"+nrstring.innerHTML + "<td>"+ befolkstring.innerHTML;
 			kommuner.appendChild(komstring);
 		}
