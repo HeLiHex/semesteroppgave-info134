@@ -5,6 +5,7 @@ Kandidatnummer:
 
 body {
     background-color: #f9f2ec;
+    color: inherit;
 }
 
 .header {
