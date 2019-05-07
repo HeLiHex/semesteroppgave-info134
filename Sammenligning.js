@@ -1,147 +1,130 @@
-var sysselsetting = new Sysselsetting(
-	"http://wildboy.uib.no/~tpe056/folk/100145.json"
-);
+var sysselsetting = new Sysselsetting("http://wildboy.uib.no/~tpe056/folk/100145.json");
 
-        var input = document.getElementById("kommunenr1");
-        var input2 = document.getElementById("kommunenr2");
-
-        input2.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                document.getElementById("sambutton").click();
-    }
-});
-
-        input.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                document.getElementById("sambutton").click();
-    }
-});
+addEnterPressListener();
 
 function sammenlign() {
-	var kommunenr1 = document.getElementById("kommunenr1").value;
-	var kommunenr2 = document.getElementById("kommunenr2").value;
-	var container = document.getElementById("sammenligning");
-	var table = document.getElementById("sammenligningsTable");
-	sysselsetting.onload = function() {
-		var kommune1Info = sysselsetting.getInfo(kommunenr1);
-		var kommune2Info = sysselsetting.getInfo(kommunenr2);
+    var kommunenr1 = document.getElementById("kommunenr1").value;
+    var kommunenr2 = document.getElementById("kommunenr2").value;
+    var container = document.getElementById("sammenligning");
+    var table = document.getElementById("sammenligningsTable");
 
-		while(table.firstChild){
-			table.removeChild(table.firstChild);
-		}
+    sysselsetting.onload = function() {
+        var kommune1Info = sysselsetting.getInfo(kommunenr1);
+        var kommune2Info = sysselsetting.getInfo(kommunenr2);
 
-		createHeader(table,kommunenr1,kommunenr2);
-
-		for (år in kommune1Info.Menn) {
-			row = document.createElement("tr");
-			var årstall = document.createElement("td");
-			var prosentMennKommune1 = document.createElement("td");
-			var prosentMennKommune2 = document.createElement("td");
-			var prosentKvinneKommune1 = document.createElement("td");
-			var prosentKvinneKommune2 = document.createElement("td");
-
-			var endringkommune1menn = document.createElement("td");
-			var endringkommune2menn = document.createElement("td");
-			var endringkommune1kvinner = document.createElement("td");
-			var endringkommune2kvinner = document.createElement("td");
-
-			årstall.innerHTML = år;
-			prosentMennKommune1.innerHTML = kommune1Info.Menn[år];
-			prosentMennKommune2.innerHTML = kommune2Info.Menn[år];
-			prosentKvinneKommune1.innerHTML = kommune1Info.Kvinner[år];
-			prosentKvinneKommune2.innerHTML = kommune2Info.Kvinner[år];
-
-			if (år == "2005") {
-				endringkommune1menn.innerHTML =  0;
-				endringkommune2menn.innerHTML =  0;
-				endringkommune1kvinner.innerHTML = 0;
-				endringkommune2kvinner.innerHTML = 0;
-			} else {
-				endringkommune1menn.innerHTML =  (kommune1Info.Menn[år] - kommune1Info.Menn[år-1]).toFixed(1);
-				endringkommune2menn.innerHTML =  (kommune2Info.Menn[år] - kommune2Info.Menn[år-1]).toFixed(1);
-				endringkommune1kvinner.innerHTML =  (kommune1Info.Kvinner[år] - kommune1Info.Kvinner[år-1]).toFixed(1);
-				endringkommune2kvinner.innerHTML =  (kommune2Info.Kvinner[år] - kommune2Info.Kvinner[år-1]).toFixed(1);
-			}
-
-			if (parseFloat(endringkommune1menn.innerHTML) > parseFloat(endringkommune2menn.innerHTML)) {
-				endringkommune1menn.classList.add('marked');
-			} else if (parseFloat(endringkommune1menn.innerHTML) < parseFloat(endringkommune2menn.innerHTML)){
-				endringkommune2menn.classList.add('marked');
-			} else {
-				endringkommune2menn.classList.add('marked');
-				endringkommune1menn.classList.add('marked');
-			}
-
-			if (parseFloat(endringkommune1kvinner.innerHTML) > parseFloat(endringkommune2kvinner.innerHTML)) {
-				endringkommune1kvinner.classList.add('marked');
-			} else if (parseFloat(endringkommune1kvinner.innerHTML) < parseFloat(endringkommune2kvinner.innerHTML)){
-				endringkommune2kvinner.classList.add('marked');
-			} else {
-				endringkommune2kvinner.classList.add('marked');
-				endringkommune1kvinner.classList.add('marked');
-			}
-
-			row.appendChild(årstall);
-			row.appendChild(prosentMennKommune1);
-			row.appendChild(endringkommune1menn);
-			row.appendChild(prosentMennKommune2);
-			row.appendChild(endringkommune2menn);
-			row.appendChild(prosentKvinneKommune1);
-			row.appendChild(endringkommune1kvinner);
-			row.appendChild(prosentKvinneKommune2);
-			row.appendChild(endringkommune2kvinner);
-
-			table.appendChild(row);
-		}
-
-		var rad = document.createElement("tr");
-		var colonne = document.createElement("td");
-	};
-	sysselsetting.load();
+        clearTable(table);
+        createHeader(table, kommunenr1, kommunenr2);
+        createTable(table, kommune1Info, kommune2Info);
+    };
+    sysselsetting.load();
 }
 
-function endring(forrige, nåværende) {
-	return nåværende - current;
+/*
+samenlignerer to elementer og markerer den høyeste ved å assigne html klassen marked
+dersom de er like blir begge markert
+*/
+function markHighest(one, two){
+    if (parseFloat(one.innerHTML) > parseFloat(two.innerHTML)) {
+        one.classList.add('marked');
+    } else if (parseFloat(one.innerHTML) < parseFloat(two.innerHTML)) {
+        two.classList.add('marked');
+    } else {
+        two.classList.add('marked');
+        one.classList.add('marked');
+    }
+}
+
+//Lager selve inholdet til tabellen ved å loope gjennom antall årstall og lage en rad med td elementer i som blir appendet til tabellen
+function createTable(table, kommune1Info, kommune2Info){
+    for (år in kommune1Info.Menn) {
+        var row = document.createElement("tr");
+
+        createTableElement(row, år, "td");
+        createTableElement(row, kommune1Info.Menn[år], "td");
+        createTableElement(row, kommune2Info.Menn[år], "td");
+        createTableElement(row, kommune1Info.Kvinner[år], "td");
+        createTableElement(row, kommune2Info.Kvinner[år], "td");
+
+        if (år == "2005") {
+            createTableElement(row, 0, "td");
+            createTableElement(row, 0, "td");
+            createTableElement(row, 0, "td");
+            createTableElement(row, 0, "td");
+        } else {
+            var endringkommune1menn = createTableElement(row, (kommune1Info.Menn[år] - kommune1Info.Menn[år - 1]).toFixed(1), "td");
+            var endringkommune2menn = createTableElement(row, (kommune2Info.Menn[år] - kommune2Info.Menn[år - 1]).toFixed(1), "td");
+            markHighest(endringkommune1menn, endringkommune2menn);
+
+            var endringkommune1kvinner = createTableElement(row, (kommune1Info.Kvinner[år] - kommune1Info.Kvinner[år - 1]).toFixed(1), "td");
+            var endringkommune2kvinner = createTableElement(row, (kommune2Info.Kvinner[år] - kommune2Info.Kvinner[år - 1]).toFixed(1), "td");
+            markHighest(endringkommune1kvinner, endringkommune2kvinner);
+        }
+
+        table.appendChild(row);
+    }
 }
 
 
-function createHeader(table,kom1,kom2){
+//Lager headeren til tabellen ved å lage 9 th elementer i en rad og appender raden til tabellen
+function createHeader(table, kom1, kom2) {
     var kommune1namn = sysselsetting.getNamesKom(kom1);
     var kommune2namn = sysselsetting.getNamesKom(kom2);
 
     var row = document.createElement("tr");
 
-    var årHeader = document.createElement("th");
-    var kommune1HeaderMenn = document.createElement("th");
-    var kommune2HeaderMenn = document.createElement("th");
-    var kommune1HeaderKvinne = document.createElement("th");
-    var kommune2HeaderKvinne = document.createElement("th");
-    var endringkommune1mennHeader = document.createElement("th");
-    var endringkommune2mennHeader = document.createElement("th");
-    var endringkommune1kvinnerHeader = document.createElement("th");
-    var endringkommune2kvinnerHeader = document.createElement("th");
-
-    årHeader.innerHTML = "År";
-    kommune1HeaderMenn.innerHTML = "Menn i " + kommune1namn;
-    kommune2HeaderMenn.innerHTML = "Menn i " + kommune2namn;
-    kommune1HeaderKvinne.innerHTML = "Kvinner i " + kommune1namn;
-    kommune2HeaderKvinne.innerHTML = "Kvinner i " + kommune2namn;
-    endringkommune1mennHeader.innerHTML = "Endring "+kommune1namn+" menn"
-    endringkommune2mennHeader.innerHTML = "Endring "+kommune2namn+" menn"
-    endringkommune1kvinnerHeader.innerHTML = "Endring "+kommune1namn+" kvinner"
-    endringkommune2kvinnerHeader.innerHTML = "Endring "+kommune2namn+" kvinner"
-
-    row.appendChild(årHeader);
-    row.appendChild(kommune1HeaderMenn);
-    row.appendChild(endringkommune1mennHeader);
-    row.appendChild(kommune2HeaderMenn);
-    row.appendChild(endringkommune2mennHeader);
-    row.appendChild(kommune1HeaderKvinne);
-    row.appendChild(endringkommune1kvinnerHeader);
-    row.appendChild(kommune2HeaderKvinne);
-    row.appendChild(endringkommune2kvinnerHeader);
+    createTableElement(row, "år", "th");
+    createTableElement(row, "Menn i " + kommune1namn, "th");
+    createTableElement(row, "Menn i " + kommune2namn, "th");
+    createTableElement(row, "Kvinner i " + kommune1namn, "th");
+    createTableElement(row, "Kvinner i " + kommune2namn, "th");
+    createTableElement(row, "Endring " + kommune1namn + " menn", "th");
+    createTableElement(row, "Endring " + kommune2namn + " menn", "th");
+    createTableElement(row, "Endring " + kommune1namn + " kvinner", "th");
+    createTableElement(row, "Endring " + kommune2namn + " kvinner", "th");
 
     table.appendChild(row);
+}
+
+
+/*
+En funksjon som legger til en listener i de to inputfeltene.
+Eventlistnerne lytter etter keyCode = 13 som er enter.
+Når enter blir trykket vil sammenlignings knappen bli trykket
+*/
+function addEnterPressListener(){
+    var input1 = document.getElementById("kommunenr1");
+    var input2 = document.getElementById("kommunenr2");
+    input2.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sambutton").click();
+        }
+    });
+
+    input1.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sambutton").click();
+        }
+    });
+}
+
+//sletter alt i tabellen
+function clearTable(table){
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+}
+
+
+/*
+En funksjon som lager et htlm element av typen tag, setter innerHTML til string, og appender til en rad.
+Funskjone blir brukt til å lage th og td-er som legges inn i en parameteret rad som er et tr element.
+Funksjonen returnerer elementet, men blir bare brukt i tilfellene der et element skal markeres.
+*/
+function createTableElement(rad, string, tag){
+    var element = document.createElement(tag);
+    element.innerHTML = string;
+    rad.appendChild(element);
+    return element;
 }
