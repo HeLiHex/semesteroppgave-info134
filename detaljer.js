@@ -121,20 +121,19 @@ function detaljer(kom) {
 
                   tabellSyssel.appendChild(rad2);
 
+
+                  //fyller informasjon i tabell for sysselsetting
                   for (år in befolk.getInfo(kom).Menn) {
                       //sysselsetting
-                      var årstallSyssel = document.createElement("tr");
-                      var sysselsatte = document.createElement("td");
-                      var kvinnerSyssel = document.createElement("td");
-                      var mennSyssel = document.createElement("td");
+                      var rad5 = document.createElement("tr");
+                      rad5.innerHTML = år;
 
-                      årstallSyssel.innerHTML = år;
-                      sysselsatte.innerHTML = syssel.getInfo(kom).Begge[år];
-                      kvinnerSyssel.innerHTML = syssel.getInfo(kom).Kvinner[år];
-                      mennSyssel.innerHTML = syssel.getInfo(kom).Menn[år];
-                      årstallSyssel.innerHTML += "<td>" + kvinnerSyssel.innerHTML + "</td>" + "<td>" + mennSyssel.innerHTML + "</td>" + "<td>" + sysselsatte.innerHTML + "</td>";
+                      //oppretter td elementene i tabell for sysselsetting
+                      createSyssel(syssel.getInfo(kom).Begge[år], rad5);
+                      createSyssel(syssel.getInfo(kom).Kvinner[år], rad5);
+                      createSyssel(syssel.getInfo(kom).Menn[år], rad5);
 
-                      tabellSyssel.appendChild(årstallSyssel);
+                      tabellSyssel.appendChild(rad5);
                   }
 
                   var rad3 = document.createElement("tr");
@@ -179,6 +178,13 @@ function detaljer(kom) {
   utdanning.load();
     }
  syssel.load();
+
+}
+
+function createSyssel(data, rad5) {
+  var sysselsatte = document.createElement("td");
+  sysselsatte.innerHTML = data;
+  rad5.appendChild(sysselsatte);
 
 }
 
